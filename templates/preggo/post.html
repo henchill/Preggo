@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Preggo</title>
+	</head>
+
+	<body>
+		<h1>{{ post_title }}</h1>
+		{% if post %}
+			<p>{{ post.content }}</p>
+			{% if comments %}
+			<ul>
+				{% for comm in comments %}
+				<li> {{ comm.content }} </li>
+				{% endfor %}
+			</ul>
+			{% else %}
+				<strong>No comments yet</strong>
+			{% endif %}
+		{% else %}
+			No post exists with the given title
+		{% endif %}
+		<a href="/preggo/post/{{ post.url }}/add_comment/">Add a New Comment</a>
+	</body>

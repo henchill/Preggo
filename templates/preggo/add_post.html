@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Preggo</title>
+	</head>
+
+	<body>
+		<h1>Add a Post</h1>
+
+		<form id="post_form" method="post" action="/preggo/add_post/">
+			{% csrf_token %}
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+
+			{% for field in form.visible_fields %}
+				{{ field.errors }}
+				{{ field.label_tag }}
+				{{ field }}
+				<br>
+			{% endfor %}
+
+			<input type="submit" name="submit" value="Create Post" />
+		</form>
+	</body>
+</html>
+
