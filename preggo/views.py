@@ -1,22 +1,31 @@
 from django.shortcuts import render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
-from preggo.models import Post, Comment
+from preggo.models import Post, Comment, Question, Answer
 
-from preggo.forms import PostForm, CommentForm
+from preggo.forms import * #PostForm, CommentForm, QuestionForm, AnswerForm
 
 def index(request):
 	context = RequestContext(request)
-	post_list = Post.objects.order_by('-upvotes')[:5]
+	context_dict = {}
+	if (request.user.is_authenticated()):
+		post_list = request.user.post_set.all()
+		question_list = request.user.question_set.all()
+		context_dict['posts']  = post_list
+		context_dict['questions'] = question_list
 
-	context_dict= {'posts': post_list}
+		for post in post_list:
+			post.url = post.title.replace(' ', '_')
 
-	for post in post_list:
-		post.url = post.title.replace(' ', '_')
+		for quest in question_list:
+			quest.url = quest.title.replace(' ', '_')
 		
 	return render_to_response('preggo/index.html', context_dict, context)
 
+@login_required
 def post(request, post_title_url):
 	#request our context form the request passed to us
 	context = RequestContext(request)
@@ -41,6 +50,7 @@ def post(request, post_title_url):
 
 	return render_to_response("preggo/post.html", context_dict, context)
 
+@login_required
 def add_post(request):
 	# Get the contest from the request.
 	context = RequestContext(request)
@@ -52,7 +62,9 @@ def add_post(request):
 		# Have we been provided with a valid form
 		if form.is_valid():
 			# Save the new post to the database
-			form.save(commit=True)
+			post = form.save(commit=False)			
+			post.user = request.user
+			post.save()
 
 			# Send request to view the index view
 			return index(request)
@@ -66,6 +78,7 @@ def add_post(request):
 	# request wasn't a post or form had errors.
 	return render_to_response('preggo/add_post.html', {'form': form}, context)
 
+@login_required
 def add_comment(request, post_title_url):
 	# Get the contest from the request.
 	context = RequestContext(request)
@@ -143,3 +156,122 @@ def signup(request):
 		{'user_form': user_form, 'profile_form': profile_form,
 		 'registered': registered}, context)
 	
+def user_login(request):
+	context = RequestContext(request)
+
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+
+		user = authenticate(username=username, password=password)
+
+		if user is not None:
+			if user.is_active:
+				login(request, user)
+				return HttpResponseRedirect('/preggo/')
+			else:
+				return HttpResponse("Your account is disabled")
+		else:
+			print "Invalid login details: {0}, {1}".format(username, password)
+			return HttpResponse("Invalid login details supplied")
+	else:
+		return render_to_response('preggo/login.html', {}, context)
+
+@login_required
+def user_logout(request):
+	logout(request)
+
+	return HttpResponseRedirect('/preggo/')
+
+@login_required
+def add_question(request):
+	# Get the contest from the request.
+	context = RequestContext(request)
+
+	# A HTTP Post?
+	if request.method == 'POST':
+		form = QuestionForm(request.POST)
+
+		# Have we been provided with a valid form
+		if form.is_valid():
+			# Save the new post to the database
+			question = form.save(commit=False)
+			question.user = request.user
+			question.save()
+			# Send request to view the index view
+			return index(request)
+		else:
+			# The form contained an error. Print erros to terminal
+			print form.errors
+	else:
+		# If request wasn't post, show the form
+		form = QuestionForm()			
+
+	# request wasn't a post or form had errors.
+	return render_to_response('preggo/add_question.html', {'form': form}, context)
+
+@login_required
+def view_question(request, question_title_url):
+			#request our context form the request passed to us
+	context = RequestContext(request)
+
+	# convert url back to title
+	question_title = question_title_url.replace('_', ' ')
+
+	# create context dict to be used by template
+	context_dict = {'question_title': question_title}
+
+	try:
+		question = Question.objects.get(title=question_title)
+		question.url = question_title_url
+		answers = Answer.objects.filter(question=question)
+
+		context_dict['answers'] = answers
+
+		context_dict['question'] = question
+
+	except Question.DoesNotExist:
+		pass
+
+	return render_to_response("preggo/view_question.html", context_dict, context)
+
+@login_required
+def add_answer(request, question_title_url):
+	# Get the contest from the request.
+	context = RequestContext(request)
+
+	question_title = question_title_url.replace("_", " ")
+	# A HTTP Post?
+	if request.method == 'POST':
+		form = AnswerForm(request.POST)
+
+		# Have we been provided with a valid form
+		if form.is_valid():
+			# Not commiting because not all fields are populated
+			answer = form.save(commit=False)
+
+			try:
+				questionObj = Question.objects.get(title=question_title)
+				answer.question = questionObj
+
+				answer.user = request.user
+				
+			except Question.DoesNotExist:
+				return_to_response("/preggo/add_question.html", {}, context)
+
+			answer.save()
+
+			# Send request to view the index view
+			return view_question(request, question_title_url)
+		else:
+			# The form contained an error. Print erros to terminal
+			print form.errors
+	else:
+		# If request wasn't post, show the form
+		form = AnswerForm()			
+
+	# request wasn't a post or form had errors.
+	return render_to_response('preggo/add_answer.html',
+		 {'form': form,
+		  'question_title_url': question_title_url,
+		  'question_title': question_title}, context)
