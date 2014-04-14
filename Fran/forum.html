@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    	<title>Forum Page</title>
+    	<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+    	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    	<script type="text/javascript" src="js/bootstrap.js"></script>
+
+    	<!-- Let's import everything Felicco imported -->
+    	<link rel="stylesheet" type="text/css" href="mainLayout.css" />
+		<script type="text/javascript" src="external_js/jquery-1.9.0.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+		<script>
+		$(function() {
+		  $(".tabs a").html5jTabs();
+		});
+		</script>
+		<script type="text/javascript">
+			;(function($){
+		  		$.fn.html5jTabs = function(options){
+		    		return this.each(function(index, value){
+		      			var obj = $(this),
+		      			objFirst = obj.eq(index),
+		      			objNotFirst = obj.not(objFirst);
+		      
+		      			$("#" +  objNotFirst.attr("data-toggle")).hide();
+		      			$(this).eq(index).addClass("active");
+		      
+		      			obj.click(function(evt){
+		        
+		        			toggler = "#" + obj.attr("data-toggle");
+		        			togglerRest = $(toggler).parent().find("div");
+		        
+		        			togglerRest.hide().removeClass("active");
+		        			$(toggler).show().addClass("active");
+
+		        			//toggle Active Class on tab buttons
+		        			$(this).parent("div").find("a").removeClass("active");
+		        			$(this).addClass("active");
+
+		        			return false; //Stop event Bubbling and PreventDefault
+		      			});
+		    		});
+		  		};
+			}(jQuery));
+		</script>
+
+    </head>
+
+    <body>
+    	<h1 class="pageTitle">Forum Page</h1>
+    	<div class="buttons">
+	    	<button class="buttonFormat" id="ask_question" align="left"> + Ask Question </button>
+	    	<button class="buttonFormat" id="find_answers" align="right"> Find Answers </button>
+	    </div>
+
+    	<div class="warning_note"><p>Please note that the answers given below are not necessarily medical facts. Please refer any serious problems to your doctor.</p></div>
+
+    	<div class="browse_questions box">
+    		<h2>Browse Questions</h2>
+    		<form class="filters" ction="">
+				<input type="radio" name="browse_filter" value="recent">Recent
+				<input type="radio" name="browse_filter" value="highest_rated">Highest Rated
+				<input type="radio" name="browse_filter" value="unanswered">Unanswered
+			</form>
+		  <div class="tabs">
+		    <a data-toggle="tab1">All</a>
+		    <a data-toggle="tab2">Planning</a>
+		    <a data-toggle="tab3">Preggo</a>
+		    <a data-toggle="tab4">New Mom</a>
+		    <a data-toggle="tab5">Experienced Mom</a>
+		  </div>
+		<div class="tabContent">  
+		  <div id="tab1">
+		    <h5>All</h5>
+		    <p>All Posts Here</p>
+		  </div>
+		  
+		  <div id="tab2">
+		    <h5>Planning</h5>
+		    <p>Posts by Planning here.</p>
+		  </div>
+		  
+		  <div id="tab3">
+		    <h5>Preggo</h5>
+		    <p>Posts by Preggo here.</p>
+		  </div>
+		  
+		  <div id="tab4">
+		    <h5>New Mom</h5>
+		    <p>Posts by New Moms here.</p>
+		  </div>
+		  
+		  <div id="tab5">
+		    <h5>Experienced Mom</h5>
+		    <p>Posts by Experienced Moms here.</p>
+		  </div>
+		</div>
+		  
+</div>
+    </body>
+
+</html>
+
