@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Preggo</title>
+	</head>
+
+	<body>
+		<h1>{{ question_title }}</h1>
+		{% if question %}
+			<h2>{{ question.category }}</h2>
+			<p>{{ question.content }}</p>
+			{% if answers %}
+			<ul>
+				{% for ans in answers %}
+				<li> {{ ans.content }} </li>
+				{% endfor %}
+			</ul>
+			{% else %}
+				<strong>No answers yet</strong>
+			{% endif %}
+		{% else %}
+			No answer exists with the given title
+		{% endif %}
+		<a href="/preggo/question/{{ question.url }}/add_answer/">Add a New Answer</a>
+	</body>
+
+</html>

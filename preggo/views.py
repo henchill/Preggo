@@ -2,9 +2,9 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from django.template import RequestContext
 
-from preggo.models import Post, Comment
+from preggo.models import Post, Comment, Question, Answer
 
-from preggo.forms import PostForm, CommentForm
+from preggo.forms import * #PostForm, CommentForm, QuestionForm, AnswerForm
 
 def index(request):
 	context = RequestContext(request)
@@ -143,3 +143,88 @@ def signup(request):
 		{'user_form': user_form, 'profile_form': profile_form,
 		 'registered': registered}, context)
 	
+def add_question(request):
+	# Get the contest from the request.
+	context = RequestContext(request)
+
+	# A HTTP Post?
+	if request.method == 'POST':
+		form = QuestionForm(request.POST)
+
+		# Have we been provided with a valid form
+		if form.is_valid():
+			# Save the new post to the database
+			form.save(commit=True)
+
+			# Send request to view the index view
+			return index(request)
+		else:
+			# The form contained an error. Print erros to terminal
+			print form.errors
+	else:
+		# If request wasn't post, show the form
+		form = QuestionForm()			
+
+	# request wasn't a post or form had errors.
+	return render_to_response('preggo/add_question.html', {'form': form}, context)
+
+def view_question(request, question_title_url):
+			#request our context form the request passed to us
+	context = RequestContext(request)
+
+	# convert url back to title
+	question_title = question_title_url.replace('_', ' ')
+
+	# create context dict to be used by template
+	context_dict = {'question_title': question_title}
+
+	try:
+		question = Question.objects.get(title=question_title)
+		question.url = question_title_url
+		answers = Answer.objects.filter(question=question)
+
+		context_dict['answers'] = answers
+
+		context_dict['question'] = question
+
+	except Quesion.DoesNotExist:
+		pass
+
+	return render_to_response("preggo/question.html", context_dict, context)
+
+def add_answer(request, question_title_url):
+	# Get the contest from the request.
+	context = RequestContext(request)
+
+	question_title = question_title_url.replace("_", " ")
+	# A HTTP Post?
+	if request.method == 'POST':
+		form = AnswerForm(request.POST)
+
+		# Have we been provided with a valid form
+		if form.is_valid():
+			# Not commiting because not all fields are populated
+			answer = form.save(commit=False)
+
+			try:
+				questionObj = Question.objects.get(title=question_title)
+				answer.question = questionObj 
+			except Question.DoesNotExist:
+				return_to_response("/preggo/add_quesiton.html", {}, context)
+
+			answer.save()
+
+			# Send request to view the index view
+			return view_question(request, question_title_url)
+		else:
+			# The form contained an error. Print erros to terminal
+			print form.errors
+	else:
+		# If request wasn't post, show the form
+		form = AnswerForm()			
+
+	# request wasn't a post or form had errors.
+	return render_to_response('preggo/add_answer.html',
+		 {'form': form,
+		  'question_title_url': question_title_url,
+		  'question_title': question_title}, context)
