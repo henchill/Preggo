@@ -8,31 +8,38 @@
 
 	<body>
 		<h1>Preggo</h1>
-		<h2>Posts</h2>
-		{% if posts %}
-			<ul>
-				{% for post in posts %}
-				<li><a href="/preggo/post/{{post.url}}"> {{post.title}}</a></li>
-				{% endfor %}
-			</ul>
-		{% else %}
-			<strong>No posts to display</strong>
-		{% endif %}
+		{% if user.is_authenticated %}
+			<strong>Welcome {{ user.username }}</strong>
+			<h2>Posts</h2>
+			{% if posts %}
+				<ul>
+					{% for post in posts %}
+					<li><a href="/preggo/post/{{post.url}}"> {{post.title}}</a></li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<strong>No posts to display</strong>
+			{% endif %}
 
-		<h2>Questions</h2>
-		{% if questions %}
-			<ul>
-				{% for quest in questions %}
-				<li><a href="/preggo/question/{{quest.url}}">{{quest.title}}</a></li>
-				{% endfor %}
-			</ul>
+			<h2>Questions</h2>
+			{% if questions %}
+				<ul>
+					{% for quest in questions %}
+					<li><a href="/preggo/question/{{quest.url}}">{{quest.title}}</a></li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<strong>No questions to display</strong>
+			{% endif %}
+			<br>
+			<a href="/preggo/add_post/">Add a New Post</a><br>
+			<a href="/preggo/add_question/">Add a New Question</a><br>
+			<a href="/preggo/logout">Logout</a><br>
 		{% else %}
-			<strong>No questions to display</strong>
+			<strong>You're not signed in</strong><br>
+			<a href="/preggo/signup">Sign Up</a><br>
+			<a href="/preggo/login">Log In</a><br>
 		{% endif %}
-		<br>
-		<a href="/preggo/add_post/">Add a New Post</a><br>
-		<a href="/preggo/add_question/">Add a New Question</a><br>
-		<a href="/preggo/signup">Sign Up</a><br>
 	</body>
 
 </html>

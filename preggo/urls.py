@@ -10,4 +10,7 @@ urlpatterns = patterns('',
 	url(r'^add_question/$', views.add_question, name='add_question'),
 	url(r'^question/(?P<question_title_url>\w+)/add_answer/$', views.add_answer, name='add_answer'),
 	url(r'^signup/$', views.signup, name='signup'),
+	url(r'^login/$', views.user_login, name="login"),
+	url(r'^logout/$', views.user_logout, name="logout"),
+	
 )

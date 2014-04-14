@@ -12,6 +12,7 @@ class PostForm(forms.ModelForm):
 	class Meta:
 		# Provide an association between the Modelform and a model
 		model = Post
+		fields = ('title', 'content', 'upvotes', 'downvotes')
 
 class CommentForm(forms.ModelForm):
 	content = forms.CharField(widget=forms.Textarea(), help_text="Please enter your comment here");
