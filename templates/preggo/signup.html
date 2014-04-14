@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Preggo</title>
-	</head>
+{% extends "preggo/base.html" %}
 
-	<body>
-		<h1>Sign Up</h1>
+{% load static %} <!-- Says we'll be using static data -->
 
-		{% if registered %}
-		<p>Thank you for signing up for Preggo.</p>
+{% block title %}Sign Up{% endblock %}
 
-		{% else %}
-		<form id='user_form' method='post' action='/preggo/signup/' enctype='multipart/form-data'>
-			{% csrf_token %}
+{% block content %}
+	<h1>Sign Up</h1>
 
-			{{ user_form.as_p }}
-			{{ profile_form.as_p }}
+	{% if registered %}
+	<p>Thank you for signing up for Preggo.</p>
 
-			<input type="submit" name="submit" value="Sign Up" />
-		</form>
-		{% endif %}
-	</body>
-</html>
+	{% else %}
+	<form id='user_form' method='post' action='/preggo/signup/' enctype='multipart/form-data'>
+		{% csrf_token %}
+
+		{{ user_form.as_p }}
+		{{ profile_form.as_p }}
+
+		<input type="submit" name="submit" value="Sign Up" />
+	</form>
+	{% endif %}
+{% endblock %}

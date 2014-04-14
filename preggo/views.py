@@ -230,10 +230,10 @@ def view_question(request, question_title_url):
 
 		context_dict['question'] = question
 
-	except Quesion.DoesNotExist:
+	except Question.DoesNotExist:
 		pass
 
-	return render_to_response("preggo/question.html", context_dict, context)
+	return render_to_response("preggo/view_question.html", context_dict, context)
 
 @login_required
 def add_answer(request, question_title_url):
@@ -252,9 +252,12 @@ def add_answer(request, question_title_url):
 
 			try:
 				questionObj = Question.objects.get(title=question_title)
-				answer.question = questionObj 
+				answer.question = questionObj
+
+				answer.user = request.user
+				
 			except Question.DoesNotExist:
-				return_to_response("/preggo/add_quesiton.html", {}, context)
+				return_to_response("/preggo/add_question.html", {}, context)
 
 			answer.save()
 

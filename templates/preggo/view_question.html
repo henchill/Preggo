@@ -1,28 +1,25 @@
-<!DOCTYPE html>
+{% extends "preggo/base.html" %}
 
-<html>
-	<head>
-		<title>Preggo</title>
-	</head>
+{% load static %} <!-- Says we'll be using static data -->
 
-	<body>
-		<h1>{{ question_title }}</h1>
-		{% if question %}
-			<h2>{{ question.category }}</h2>
-			<p>{{ question.content }}</p>
-			{% if answers %}
-			<ul>
-				{% for ans in answers %}
-				<li> {{ ans.content }} </li>
-				{% endfor %}
-			</ul>
-			{% else %}
-				<strong>No answers yet</strong>
-			{% endif %}
+{% block title %}{{ question_title}}{% endblock %}
+
+{% block content %}
+	<h1>{{ question_title }}</h1>
+	{% if question %}
+		<h2>{{ question.category }}</h2>
+		<p>{{ question.content }}</p>
+		{% if answers %}
+		<ul>
+			{% for ans in answers %}
+			<li> {{ ans.content }} ({{ ans.user.username }}) </li>
+			{% endfor %}
+		</ul>
 		{% else %}
-			No answer exists with the given title
+			<strong>No answers yet</strong>
 		{% endif %}
-		<a href="/preggo/question/{{ question.url }}/add_answer/">Add a New Answer</a>
-	</body>
-
-</html>
+	{% else %}
+		No answer exists with the given title
+	{% endif %}<br>
+	<a href="/preggo/question/{{ question.url }}/add_answer/">Add a New Answer</a>
+{% endblock %}
