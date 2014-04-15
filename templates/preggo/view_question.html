@@ -5,6 +5,7 @@
 {% block title %}{{ question_title}}{% endblock %}
 
 {% block content %}
+<div>
 	<h1>{{ question_title }}</h1>
 	{% if question %}
 		<h2>{{ question.category }}</h2>
@@ -22,4 +23,5 @@
 		No answer exists with the given title
 	{% endif %}<br>
 	<a href="/preggo/question/{{ question.url }}/add_answer/">Add a New Answer</a>
+</div>
 {% endblock %}
