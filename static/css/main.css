@@ -182,7 +182,6 @@
 }
 
 .row {
-	position: relative;
 	display: table-row;
 }
 
@@ -221,22 +220,18 @@ span.glyphicon-thumbs-up, span.glyphicon-thumbs-down {
 	display: block;
 }
 
-a {
+.question-footer > a {
 	margin-right: 20px;
 }
 
 .comments p{
 	width: 85%;
 }
+
 .tabContent p{
 	width: 85%;
 }
-a{
-	float: left;
-}
-h3{
-	border-bottom: 1px solid #9a9a9a;
-}
+
 #reply{
 	margin-left: 10px;
 }

@@ -30,7 +30,11 @@ class UserProfile(models.Model):
 	# additional attributes
 	picture = models.ImageField(upload_to='profile_images', blank=True)
 
+	def get_absolute_url(self):
+		return "/preggo/%s" % self.user.username
+		
 	# Override unicode method
+	
 	def __unicode__(self):
 		return self.user.username
 
@@ -59,6 +63,9 @@ class Question(models.Model):
 	content = models.TextField()
 	upvotes = models.IntegerField(default=0)
 	downvotes = models.IntegerField(default=0)
+
+	def get_absolute_url(self):
+		return "/preggo/question/%s" % self.title.replace(' ', '_')
 
 	def __unicode__(self):
 		return self.title

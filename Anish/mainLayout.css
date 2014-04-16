@@ -59,7 +59,6 @@
 /* http://code-tricks.com/create-a-simple-html5-tabs-using-jquery/ */
 .tabs a{
   cursor: pointer;
-  margin-left:500px;
   padding: 5px;
   background: #fff;
   color: #000;
@@ -79,10 +78,4 @@
 #preggo{
 	word-spacing: 4em;
 	
-}
-#tab1{
-	margin-left:500px;
-}
-#tab2{
-	margin-left:500px;
 }

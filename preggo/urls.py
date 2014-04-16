@@ -14,5 +14,6 @@ urlpatterns = patterns('',
 	url(r'^logout/$', views.user_logout, name="logout"),
 	url(r'^medfacts/$', views.medfacts, name="medfacts"),
 	url(r'^forum/$', views.forum, name="forum"),
+	url(r'^user/(?P<user_url>\w+)/$', views.user_page, name="user_page"),
 	
 )

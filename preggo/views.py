@@ -262,7 +262,7 @@ def add_answer(request, question_title_url):
 			answer.save()
 
 			# Send request to view the index view
-			return view_question(request, question_title_url)
+			return redirect(questionObj)
 		else:
 			# The form contained an error. Print erros to terminal
 			print form.errors
@@ -284,5 +284,22 @@ def medfacts(request):
 def forum(request):
 	context = RequestContext(request)
 	question_list = request.user.question_set.all()
+
+	for quest in question_list:
+		quest.url = quest.title.replace(' ', '_')
+
 	context_dict = {"questions": question_list}
 	return render_to_response('preggo/forum.html', context_dict, context)
+
+@login_required
+def user_page(request, user_url):
+	context = RequestContext(request)
+
+	post_list = request.user.post_set.all()
+
+
+	for post in post_list:
+		post.url = post.title.replace(' ', '_')
+			
+	context_dict = {"posts": post_list}
+	return render_to_response('preggo/user_page.html', context_dict, context)

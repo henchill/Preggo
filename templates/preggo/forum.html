@@ -9,7 +9,7 @@
 <div id='container'>
 	<h1 class="pageTitle">Forum</h1>
 	<div class="buttons">
-    	<a href="#"><button class="buttonFormat-fran" id="ask_question" align="left"> + Ask Question </button></a>
+    	<a href="/preggo/add_question"><button class="buttonFormat-fran" id="ask_question" align="left"> + Ask Question </button></a>
     	<a href="#" class="pull-right"><button class="buttonFormat-fran" id="find_answers" align="right"> Find Answers </button></a>
     </div>
 
@@ -38,8 +38,8 @@
 			  	    <h4>{{ question.title }}</h4>
 			    	<div class="question-content">{{ question.content }}</div>
 			    	<div class="question-footer">
-			    		<a href='singlePost.html'>View Responses</a>
-			    		<a href='singlePost.html' >Reply</a>
+			    		<a href='/preggo/question/{{question.url}}'>View Responses</a>
+			    		<a href='/preggo/question/{{question.url}}/add_answer' >Reply</a>
 			    	</div>
 	    		</div>
 	    		<div class="thumbs-container col-md-1">

@@ -45,57 +45,71 @@ $(function() {
   		};
 	}(jQuery));
 </script>
- 
 <body>
-<div class= "userPage" height="1000"; width="1000">
-   <h1 class="subheader">UserPage</h1>
-        <div style="width:850px;height:90px;border:1px solid #000;">
-        <h2 id="preggo">PREGGO Home Medfacts Forum Blog</h2>
-        </div>
-        <div style="width:300px;height:760px;border:1px solid #000;">
-        <button>Edit Profile</button><button>Find Friend</button>
-        <img src = "Preggo.jpeg">
-        <h3>Ashley Carlson</h3>
+<div class= "userPage" style="height:1000px;width:1000px;float:left;">
+   <h1 class="subheader">PREGGO</h1>
+   <div id= "navBar" style="height:90px;width:900px;float:left;border:2px solid;">
+        <h2 id="preggo">Home Medfacts Forum Blog</h2>
+   </div>
+   <div id= "profile" style="height:760px;width:300px;float:left;border:2px solid;">
+   <button>Edit Profile</button><button>Find Friend</button>
+      <div id="profilePicture" style="height:250px;width:250px;float:left;">
+        <img src = "Preggo.jpeg" style="height:200px;width:200px;float:left;">
+      </div>
+      <div id="bioInfo" style="height:400px;width:275px;float:left;">
+      <h3>Ashley Carlson</h3>
         <h4>Baby's Name: Johnny Carlson</h4>
         <h4>Baby's Birthday: March 20, 2014</h4>
         <h4>Baby's Favorite Food: Macaroni and Cheese</h4>
         <h4>Baby's Special Conditions: Asthma, Allergies to Nuts and Penicillin</h4>
         <p>Nahom and I recently had a baby boy named Johnny. We love him to death and he is such a joy to have around our house. We recently found out he has asthma, so we are taking the necessary precautions to help him on his way to growth. We are excited to see what God has in store for Johnny, and he has been a Blessing in our lives.</p>
-        </div>
-  <p></p>
-  <div class="tabs">
+      </div>
+   </div>
+   <div id="Posts" style="height:760px;width:600px;float:left;">
+    <div class="tabs">
     <a data-toggle="tab1">My Posts</a>
     <a data-toggle="tab2">Other Posts</a>
   </div>
-<div class="tabContent">
+<div class="tabContent">  
   <div id="tab1">
-    <h5>My Posts</h5>
     <p>Johnny had his first bottle of milk! </p>
     <button>Reply</button><button>Like</button><button>Edit</button>
+    <hr>
     <p>Looks like mommy will have to change his diapers today hehe </p>
     <button>Reply</button><button>Like</button><button>Edit</button>
+    <hr>
     <p>Does anyone recommend any clothing places around? The clothes for babies seem to be so expensive in Boston.</p>
     <button>Reply</button><button>Like</button><button>Edit</button>
+    <hr>
     <p>Today we took Johnny to his first day of day care! </p>
     <button>Reply</button><button>Like</button><button>Edit</button>
+    <hr>
   </div>
   
   <div id="tab2">
-    
-    <h5>Other Posts</h5>
     <p>Birthday girl today! Happy 1st birthday little Natalie!</p>
     <button>Reply</button><button>Like</button>
+    <hr>
     <p>Does anyone have a babysitter they recommend? Josh and I are going to the game this weekend, and we need someone to watch Bobby.</p>
     <button>Reply</button><button>Like</button>
+    <hr>
     <p>It's such a nice day today, looks like Mike loves the weather!</p>
     <button>Reply</button><button>Like</button>
+    <hr>
     <p>My son Jimmy seems to be having diarrhea, he's 3 months old...anyone have a recommendation on what to do?</p>
     <button>Reply</button><button>Like</button>
+    <hr>
   </div>
   
-  
+</div>
+   </div>
 </div>
 
-</div>
+
+
+
+
+
+</div>   
 </body>
 </html>
