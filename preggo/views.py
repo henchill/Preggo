@@ -279,3 +279,10 @@ def add_answer(request, question_title_url):
 def medfacts(request):
 	context = RequestContext(request)
 	return render_to_response('preggo/medfacts.html', {}, context)
+
+@login_required
+def forum(request):
+	context = RequestContext(request)
+	question_list = request.user.question_set.all()
+	context_dict = {"questions": question_list}
+	return render_to_response('preggo/forum.html', context_dict, context)
