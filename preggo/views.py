@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
@@ -8,6 +8,7 @@ from preggo.models import Post, Comment, Question, Answer
 
 from preggo.forms import * #PostForm, CommentForm, QuestionForm, AnswerForm
 
+@login_required
 def index(request):
 	context = RequestContext(request)
 	context_dict = {}
@@ -67,7 +68,7 @@ def add_post(request):
 			post.save()
 
 			# Send request to view the index view
-			return index(request)
+			return HttpResponseRedirect('/preggo/')
 		else:
 			# The form contained an error. Print erros to terminal
 			print form.errors
@@ -102,7 +103,7 @@ def add_comment(request, post_title_url):
 			comment.save()
 
 			# Send request to view the index view
-			return post(request, post_title_url)
+			return redirect(postObj) #post(request, post_title_url)
 		else:
 			# The form contained an error. Print erros to terminal
 			print form.errors
@@ -158,7 +159,6 @@ def signup(request):
 	
 def user_login(request):
 	context = RequestContext(request)
-
 	if request.method == 'POST':
 		username = request.POST['username']
 		password = request.POST['password']
@@ -175,7 +175,7 @@ def user_login(request):
 			print "Invalid login details: {0}, {1}".format(username, password)
 			return HttpResponse("Invalid login details supplied")
 	else:
-		return render_to_response('preggo/login.html', {}, context)
+		return render_to_response('preggo/welcome.html', {}, context)
 
 @login_required
 def user_logout(request):
@@ -255,7 +255,7 @@ def add_answer(request, question_title_url):
 				answer.question = questionObj
 
 				answer.user = request.user
-				
+
 			except Question.DoesNotExist:
 				return_to_response("/preggo/add_question.html", {}, context)
 
@@ -275,3 +275,7 @@ def add_answer(request, question_title_url):
 		 {'form': form,
 		  'question_title_url': question_title_url,
 		  'question_title': question_title}, context)
+
+def medfacts(request):
+	context = RequestContext(request)
+	return render_to_response('preggo/medfacts.html', {}, context)

@@ -5,6 +5,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{ STATIC_URL }}css/main.css" rel="stylesheet">
 		<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
 		<title>{% block title %}Preggo{% endblock %}</title>
@@ -18,8 +19,8 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">MedFacts</a></li>
+						<li><a href="/preggo/">Home</a></li>
+						<li><a href="/preggo/medfacts">MedFacts</a></li>
 						<li><a href="#">Forum</a></li>
 						<li><a href="#">UserPage</a></li>
 						<li class="dropdown">

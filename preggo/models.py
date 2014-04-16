@@ -8,6 +8,9 @@ class Post(models.Model):
 	upvotes = models.IntegerField(default=0)
 	downvotes = models.IntegerField(default=0)
 
+	def get_absolute_url(self):
+		return "/preggo/post/%s" % self.title.replace(' ', '_')
+
 	def __unicode__(self):
 		return self.title
 
