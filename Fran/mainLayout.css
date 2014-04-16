@@ -56,7 +56,7 @@
 	padding: 5px;
 }
 
-.warning_note p{
+.warning_note {
 	margin-top: 5px;
 	text-align: center;
 	vertical-align: middle;
@@ -120,24 +120,47 @@
 	padding: 15px;
 	overflow: hidden;
 }
-.arrows{
+.thumbs{
 	position: relative;
 	float: right;
 	vertical-align: middle;
-}
-#q1{
-	overflow: hidden;
 }
 p{
 	float: left;
 	margin: 10px;
 }
+.comments p{
+	width: 85%;
+}
+.tabContent p{
+	width: 85%;
+}
 a{
 	float: left;
 }
 h3{
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #9a9a9a;
 }
 #reply{
 	margin-left: 10px;
+}
+#up{
+  content: url("Symbol_thumbs_up.svg");
+}
+#down{
+  content: url("Symbol_thumbs_down.svg");
+}
+#up:hover{
+  content: url("Symbol_thumbs_up_darkened.png");
+}
+#down:hover{
+  content: url("Symbol_thumbs_down_darkened.png");
+}
+#reply_button{
+	position: relative;
+	float: right;
+	margin-right: 20px;
+}
+.q1_rating_table td{
+	text-align: center;
 }
