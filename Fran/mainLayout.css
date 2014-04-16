@@ -56,20 +56,12 @@
 	padding: 5px;
 }
 
-.warning_note p{
+.warning_note {
 	margin-top: 5px;
 	text-align: center;
 	vertical-align: middle;
 	font-size: 17px;
 	margin-bottom: 15px;
-}
-
-.browse_questions{
-	padding: 10px;
-}
-
-h2{
-	margin-left: 15px;
 }
 
 #find_answers{
@@ -110,6 +102,7 @@ h2{
   color: #000;
   border: 1px solid #666;
   border-bottom: 0;
+  margin-bottom: 5px;
 }
 .tabs a:hover, .tabs a.active{
   background: #666;
@@ -119,9 +112,55 @@ h2{
 .tabContent{
   border: 1px solid #aaa;
   margin: 4px 0;
-  padding: 5px;
+  padding: 25px;
 }
 
-.browse_questions{
+.box{
 	outline:#FFC0CB outset thick;
+	padding: 15px;
+	overflow: hidden;
+}
+.thumbs{
+	position: relative;
+	float: right;
+	vertical-align: middle;
+}
+p{
+	float: left;
+	margin: 10px;
+}
+.comments p{
+	width: 85%;
+}
+.tabContent p{
+	width: 85%;
+}
+a{
+	float: left;
+}
+h3{
+	border-bottom: 1px solid #9a9a9a;
+}
+#reply{
+	margin-left: 10px;
+}
+#up{
+  content: url("Symbol_thumbs_up.svg");
+}
+#down{
+  content: url("Symbol_thumbs_down.svg");
+}
+#up:hover{
+  content: url("Symbol_thumbs_up_darkened.png");
+}
+#down:hover{
+  content: url("Symbol_thumbs_down_darkened.png");
+}
+#reply_button{
+	position: relative;
+	float: right;
+	margin-right: 20px;
+}
+.q1_rating_table td{
+	text-align: center;
 }
