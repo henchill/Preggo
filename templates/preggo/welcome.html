@@ -11,7 +11,7 @@
 		<p class= 'pageTitle'> Welcome to Preggo </p>
 		<form id="login_welcome" method="post" action="/preggo/login/">
 			{% csrf_token %}
-			<div id="content" style="background-color:#F5F5DC;height:400px;width:400px;float:left;">
+			<div id="content" style="height:400px;width:400px;float:left;">
 				Username: <input type="text" name="username" value="" size="50" /><br>
 				Password: <input type="password" name="password" value="" size="50"><br>
 				<!-- <input type="submit" value="Log In"> -->
@@ -22,7 +22,7 @@
 		<div id="content" style="background-color:#F5F5DC;height:400px;width:400px;float:left;">
 			<p> <a href="/preggo/medfacts.html" class="buttonFormat">Medical Facts</a> </p>
 			<p> <a href="#" class="buttonFormat">Blogs</a> </p>
-			<p> <a href="#" class="buttonFormat">Forum</a> </p>
+			<p> <a href="/preggo/forum" class="buttonFormat">Forum</a> </p>
 		</div>
 	</div>
 </div>

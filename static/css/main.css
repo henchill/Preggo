@@ -183,6 +183,7 @@
 
 .row {
 	display: table-row;
+	
 }
 
 [class*="col-"] {
