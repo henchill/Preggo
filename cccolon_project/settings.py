@@ -12,12 +12,13 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 import dj_database_url
 
-DEVELOPMENT = False #True
 ALLOWED_HOSTS = ['*']
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-TEMPLATE_DEBUG = True
 DEBUG = True
+
+TEMPLATE_DEBUG = True
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -63,9 +64,9 @@ DATABASES = {
     }
 }
 
-if not DEVELOPMENT:
-    DATABASES['default'] = dj_database_url.config()
-    DEBUG = False
+#if not DEVELOPMENT:
+DATABASES['default'] = dj_database_url.config()
+DEBUG = False
     
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
