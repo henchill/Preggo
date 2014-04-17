@@ -184,7 +184,7 @@
 [class*="col-"] {
     float: none;
     display: table-cell;
-    vertical-align: top;
+    vertical-align: top;    
 }
 
 .thumbs-container{
@@ -204,6 +204,18 @@ span.glyphicon-thumbs-up, span.glyphicon-thumbs-down {
 .question-list {
   display: table-row;  
   width: 100%;
+  border-bottom: 1px solid #ddd;
+  
+}
+
+#form-content {
+  width: 75%;
+  align: center;
+}
+
+.question-list > [class*="col-"]{
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
 
 .quest-list {

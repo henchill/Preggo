@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class='container'>
+<div class="container">
   <h1 class="pageTitle">Forum</h1>
   <div class="buttons">
     <a href="/preggo/add_question"><button class="buttonFormat-fran" id="ask_question" align="left"> + Ask Question </button></a>
@@ -30,8 +30,9 @@
       <li><a href="#tab5" data-toggle="tab">Experience Mom</a></li>
     </ul> 
     <div id="my-tab-content" class="tab-content">  
-      <div class="tab-pane active quest-list" id="tab1">
+      <div class="tab-pane active " id="tab1">
       {% if questions %}
+        <div class="quest-list">
         {% for question in questions %}
         <div class="row question-list">
           <div class="col-md-10">
@@ -53,6 +54,7 @@
         </div>
         <hr>
         {% endfor %}
+        </div>
       {% endif %}
       </div>
 

@@ -7,24 +7,25 @@
 {% block content %}
 
 <div>
-	<div class="container">
+	
 		<p class='pageTitle'> Welcome to Preggo </p>
-		<div class="row center">
-                  <div class='col-md-6'>
-                    <form id="login_welcome" method="post" action="/preggo/login/">
+		<div class="container">
+		<div class="row">
+                  <div class='col-md-6 col-lg-3'>
+                    <form id="login_welcome" method="post" action="/preggo/login/" role="form">
 			{% csrf_token %}
-			<div id="content" style="height:400px;width:400px;float:left;">
+			<div id="form-content" style="height:400px;width:400px;float:left;">
 				Username: <input type="text" name="username" value="" size="50" /><br>
 				Password: <input type="password" name="password" value="" size="50"><br>
 				<!-- <input type="submit" value="Log In"> -->
 				<div class="pull-right">
-				<button  type="submit" class="btn btn-med btn-link">Log In</button>
+				<button  type="submit" class="btn btn-link">Log In</button>
 				<a href="/preggo/signup.html" class="btn btn-med">Sign Up</a>
 				</div>
 			</div>
                     </from>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-6 col-lg-3">
                     <div id="shortcut-buttons" style="">
 			<p> <a href="/preggo/medfacts" class="buttonFormat">Medical Facts</a> </p>
 			<p> <a href="#" class="buttonFormat">Blogs</a> </p>
