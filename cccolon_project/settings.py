@@ -97,8 +97,8 @@ STATICFILES_DIRS = (
 )
 
 # for user uploads
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/static/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
 LOGIN_URL = '/preggo/login/'
 
