@@ -280,10 +280,9 @@ def medfacts(request):
 	context = RequestContext(request)
 	return render_to_response('preggo/medfacts.html', {}, context)
 
-@login_required
 def forum(request):
 	context = RequestContext(request)
-	question_list = request.user.question_set.all()
+	question_list = Question.objects.all()
 
 	for quest in question_list:
 		quest.url = quest.title.replace(' ', '_')
@@ -300,6 +299,6 @@ def user_page(request, user_url):
 
 	for post in post_list:
 		post.url = post.title.replace(' ', '_')
-			
+
 	context_dict = {"posts": post_list}
 	return render_to_response('preggo/user_page.html', context_dict, context)
