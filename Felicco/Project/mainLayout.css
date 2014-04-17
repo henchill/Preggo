@@ -1,0 +1,77 @@
+/*Referenced from the button generator site: http://www.cssbuttongenerator.com*/
+.buttonFormat {
+	-moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356), color-stop(1, #a5cc52) );
+	background:-moz-linear-gradient( center top, #b8e356 5%, #a5cc52 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52');
+	background-color:#b8e356;
+	-webkit-border-top-left-radius:42px;
+	-moz-border-radius-topleft:42px;
+	border-top-left-radius:42px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:42px;
+	-moz-border-radius-bottomright:42px;
+	border-bottom-right-radius:42px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:3px solid #FFC0CB;/* box outline */
+	display:inline-block;
+	color:#F0FFFF;/* text in the box */
+	font-family:Arial;
+	font-size:25px;
+	font-weight:bold;
+	font-style:normal;
+	height:100px;
+	line-height:100px;
+	width:200px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #86ae47;
+	position: relative;
+	left:80px;
+}
+.buttonFormat:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a5cc52), color-stop(1, #b8e356) );
+	background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
+	background-color:#a5cc52;
+}
+.buttonFormat:active {
+	position:relative;
+	top:1px;
+}
+.pageTitle{
+	font-size: 80px;
+	font-weight: bold;
+	font-style: italic;
+	color: #FFC0CB;
+	font-family: Helvetica;
+	position: relative;
+	left: 200px;
+}
+
+/* http://code-tricks.com/create-a-simple-html5-tabs-using-jquery/ */
+.tabs a{
+  cursor: pointer;
+  padding: 5px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #666;
+  border-bottom: 0;
+}
+.tabs a:hover, .tabs a.active{
+  background: #666;
+  color: #fff;
+}
+
+.tabContent{
+  border: 1px solid #aaa;
+  margin: 4px 0;
+  padding: 5px;
+}

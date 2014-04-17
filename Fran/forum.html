@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    	<title>Forum Page</title>
+    	<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+    	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    	<script type="text/javascript" src="js/bootstrap.js"></script>
+
+    	<!-- Let's import everything Felicco imported -->
+    	<link rel="stylesheet" type="text/css" href="mainLayout.css" />
+		<script type="text/javascript" src="external_js/jquery-1.9.0.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+		<script>
+		$(function() {
+		  $(".tabs a").html5jTabs();
+		});
+		</script>
+		<script type="text/javascript">
+			;(function($){
+		  		$.fn.html5jTabs = function(options){
+		    		return this.each(function(index, value){
+		      			var obj = $(this),
+		      			objFirst = obj.eq(index),
+		      			objNotFirst = obj.not(objFirst);
+		      
+		      			$("#" +  objNotFirst.attr("data-toggle")).hide();
+		      			$(this).eq(index).addClass("active");
+		      
+		      			obj.click(function(evt){
+		        
+		        			toggler = "#" + obj.attr("data-toggle");
+		        			togglerRest = $(toggler).parent().find("div");
+		        
+		        			togglerRest.hide().removeClass("active");
+		        			$(toggler).show().addClass("active");
+
+		        			//toggle Active Class on tab buttons
+		        			$(this).parent("div").find("a").removeClass("active");
+		        			$(this).addClass("active");
+
+		        			return false; //Stop event Bubbling and PreventDefault
+		      			});
+		    		});
+		  		};
+			}(jQuery));
+
+			// $(function() {
+			// 	document.getElementById("tab1").append("
+			// 		<div class='questions' id='q1'>
+			// 		<h5>Why am I feeling so nauseous?</h5>
+			// 	    <p>For the past few days, I've been waking up feeling very nauseous with a slight headache. I'm still in my frist trimester of pregnancy. Is this normal? What can I do...</p>
+			// 	    <img src='up_green_arrow.png' class='arrows' id='up' width='50px' height='50px'>
+			// 	    <img src='down_green_arrow.png' class='arrows' id='down' width='50px' height='50px'><br>
+			// 	    <a href='singlePost.html'>View Responses</a> <a href='singlePost.html' id='reply'>Reply</a> 
+			//     	<hr>
+			//     	</div>
+			//     ");
+		 //    });
+		</script>
+    </head>
+
+    <body>
+    	<h1 class="pageTitle">Forum Page</h1>
+    	<div class="buttons">
+	    	<a href="questionForm.html"><button class="buttonFormat" id="ask_question" align="left"> + Ask Question </button></a>
+	    	<button class="buttonFormat" id="find_answers" align="right"> Find Answers </button>
+	    </div>
+
+    	<div class="warning_note">Please note that the answers given below are not necessarily medical facts. Please refer any serious problems to your doctor.</div>
+
+    	<div class="browse_questions box">
+    		<h2>Browse Questions</h2>
+    		<form class="filters" ction="">
+				<input type="radio" name="browse_filter" value="recent">Recent
+				<input type="radio" name="browse_filter" value="highest_rated">Highest Rated
+				<input type="radio" name="browse_filter" value="unanswered">Unanswered
+			</form>
+		  <div class="tabs">
+		    <a data-toggle="tab1">All</a>
+		    <a data-toggle="tab2">Planning</a>
+		    <a data-toggle="tab3">Preggo</a>
+		    <a data-toggle="tab4">New Mom</a>
+		    <a data-toggle="tab5">Experienced Mom</a>
+		  </div>
+		<div class="tabContent">  
+		  <div id="tab1"><br>
+		  	<h5>Why am I feeling so nauseous?</h5>
+			  	<span class="description_ratings">
+		    	<p>For the past few days, I've been waking up feeling very nauseous with a slight headache. I'm still in my frist trimester of pregnancy. Is this normal? What can I do to...</p>
+		    	<table class="q1_rating_table">
+		    		<tr>
+		    			<td>
+						    <a href="forum.html" class="thumbs">
+						    	<img src='Symbol_thumbs_up.svg' class='thumbs' id='up' width='50px' height='50px'>
+						    </a>
+						</td>
+						<td>
+						    <a href="forum.html" class="thumbs">
+						    	<img src='Symbol_thumbs_down.svg' class='thumbs' id='down' width='50px' height='50px'>
+						    </a>
+						</td>
+					</tr>
+					<tr>
+						<td id="up_rating">10
+						</td>
+						<td id="down_rating">1
+						</td>
+					</tr>
+				</table>
+			</span>
+		    <a href='singlePost.html'>View Responses</a> <a href='singlePost.html' id='reply'>Reply</a> <br>
+	    	<hr>
+
+
+
+	    	<h5>Why am I feeling so nauseous?</h5>
+			  	<span class="description_ratings">
+		    	<p>For the past few days, I've been waking up feeling very nauseous with a slight headache. I'm still in my frist trimester of pregnancy. Is this normal? What can I do to...</p>
+		    	<table class="q1_rating_table">
+		    		<tr>
+		    			<td>
+						    <a href="forum.html" class="thumbs">
+						    	<img src='Symbol_thumbs_up.svg' class='thumbs' id='up' width='50px' height='50px'>
+						    </a>
+						</td>
+						<td>
+						    <a href="forum.html" class="thumbs">
+						    	<img src='Symbol_thumbs_down.svg' class='thumbs' id='down' width='50px' height='50px'>
+						    </a>
+						</td>
+					</tr>
+					<tr>
+						<td id="up_rating">10
+						</td>
+						<td id="down_rating">1
+						</td>
+					</tr>
+				</table>
+			</span>
+		    <a href='singlePost.html'>View Responses</a> <a href='singlePost.html' id='reply'>Reply</a> <br>
+	    	<hr>
+		  </div>
+		  
+		  <div id="tab2">
+		    <h5>Why am I feeling so nauseous?</h5>
+			  	<span class="description_ratings">
+		    	<p>For the past few days, I've been waking up feeling very nauseous with a slight headache. I'm still in my frist trimester of pregnancy. Is this normal? What can I do to...</p>
+		    	<table class="q1_rating_table">
+		    		<tr>
+		    			<td>
+						    <a href="forum.html" class="thumbs">
+						    	<img src='Symbol_thumbs_up.svg' class='thumbs' id='up' width='50px' height='50px'>
+						    </a>
+						</td>
+						<td>
+						    <a href="forum.html" class="thumbs">
+						    	<img src='Symbol_thumbs_down.svg' class='thumbs' id='down' width='50px' height='50px'>
+						    </a>
+						</td>
+					</tr>
+					<tr>
+						<td id="up_rating">10
+						</td>
+						<td id="down_rating">1
+						</td>
+					</tr>
+				</table>
+			</span>
+		    <a href='singlePost.html'>View Responses</a> <a href='singlePost.html' id='reply'>Reply</a> <br>
+	    	<hr>
+		  </div>
+		  
+		  <div id="tab3">
+		    <h5>Why am I feeling so nauseous?</h5>
+		    <p>For the past few days, I've been waking up feeling very nauseous with a slight headache. I'm still in my frist trimester of pregnancy. Is this normal? What can I do to...</p>
+		    <a href="forum.html">
+		    	<img src='Symbol_thumbs_up.svg' class='arrows' id='up' width='50px' height='50px'>
+		    </a>
+		    <a href="forum.html">
+		    	<img src='Symbol_thumbs_down.svg' class='arrows' id='down' width='50px' height='50px'>
+		    </a>
+		    <br><br><br>
+		    <a href='singlePost.html'>View Responses</a> <a href='singlePost.html' id='reply'>Reply</a> <br>
+	    	<hr>
+		  </div>
+		  
+		  <div id="tab4">
+		    <h5>Why am I feeling so nauseous?</h5>
+			  	<span class="description_ratings">
+		    	<p>For the past few days, I've been waking up feeling very nauseous with a slight headache. I'm still in my frist trimester of pregnancy. Is this normal? What can I do to...</p>
+		    	<table class="q1_rating_table">
+		    		<tr>
+		    			<td>
+						    <a href="forum.html" class="thumbs">
+						    	<img src='Symbol_thumbs_up.svg' class='thumbs' id='up' width='50px' height='50px'>
+						    </a>
+						</td>
+						<td>
+						    <a href="forum.html" class="thumbs">
+						    	<img src='Symbol_thumbs_down.svg' class='thumbs' id='down' width='50px' height='50px'>
+						    </a>
+						</td>
+					</tr>
+					<tr>
+						<td id="up_rating">10
+						</td>
+						<td id="down_rating">1
+						</td>
+					</tr>
+				</table>
+			</span>
+		    <a href='singlePost.html'>View Responses</a> <a href='singlePost.html' id='reply'>Reply</a> <br>
+	    	<hr>
+		  </div>
+		  
+		  <div id="tab5">
+		    <h5>Why am I feeling so nauseous?</h5>
+			  	<span class="description_ratings">
+		    	<p>For the past few days, I've been waking up feeling very nauseous with a slight headache. I'm still in my frist trimester of pregnancy. Is this normal? What can I do to...</p>
+		    	<table class="q1_rating_table">
+		    		<tr>
+		    			<td>
+						    <a href="forum.html" class="thumbs">
+						    	<img src='Symbol_thumbs_up.svg' class='thumbs' id='up' width='50px' height='50px'>
+						    </a>
+						</td>
+						<td>
+						    <a href="forum.html" class="thumbs">
+						    	<img src='Symbol_thumbs_down.svg' class='thumbs' id='down' width='50px' height='50px'>
+						    </a>
+						</td>
+					</tr>
+					<tr>
+						<td id="up_rating">10
+						</td>
+						<td id="down_rating">1
+						</td>
+					</tr>
+				</table>
+			</span>
+		    <a href='singlePost.html'>View Responses</a> <a href='singlePost.html' id='reply'>Reply</a> <br>
+	    	<hr>
+		  </div>
+		</div>
+		  
+</div>
+    </body>
+
+</html>
+

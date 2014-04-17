@@ -1,0 +1,50 @@
+{% extends "preggo/base.html" %}
+
+{% load static %} <!-- Says we'll be using static data -->
+
+{% block title %}{{question.title}}{% endblock %}
+
+{% block content %}
+<div>
+	<h1 class="pageTitle">Forum Page</h1>
+	<div class="buttons">
+    	<a href="/preggo/add_question"><button class="buttonFormat-fran" id="ask_question" align="left"> + Ask Question </button></a>
+    	<button class="buttonFormat-fran" id="find_answers" align="right"> Find Answers </button>
+    </div>
+
+	<div class="warning_note"><p>Please note that the answers given below are not necessarily medical facts. Please refer any serious problems to your doctor.</p></div>
+
+	<div class="question box">
+		<a href="/preggo/forum">Back to Forum</a><br><br>
+    	<h2>{{question.title}}</h2> <hr> <br>
+    	<div class="description">
+	    	<p>{{question.content}}</p>
+    	</div>
+    	<br><br><br>
+    	<a href="#" id="reply_button">Reply</a>
+    	<h3>Comments</h3>
+		{% if comments %}
+			{% for comment in comments %}
+			<div class="row">
+				<div class="col-md-10">
+					<h4>{{comment.user.username}}</h4>
+					<div class="question-content">
+						{{comment.content}}
+					</div>
+				</div>
+				<div class="thumbs-container col-md-1">
+					<span class="glyphicon glyphicon-thumbs-up"></span>
+					<div class="votes">10</div>
+				</div>
+				<div class="thumbs-container col-md-1">
+					<span class="glyphicon glyphicon-thumbs-down"></span>
+					<div class="votes">4</div>
+				</div>
+			</div>
+			{% endfor %}
+		{% endif %}
+    </div>
+	
+</div>
+
+{% endblock %}

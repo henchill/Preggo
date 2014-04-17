@@ -1,0 +1,53 @@
+{% extends "preggo/base.html" %}
+
+{% load static %}
+
+{% block title %}MedFacts{% endblock %}
+
+{% block content %}
+
+<div id="container">
+	<h1 class= 'pageTitle'> Medical Facts </h1>
+  <div id="content">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab">Tab1</a></li>
+      <li><a href="#tab2" data-toggle="tab">Tab2</a></li>
+      <li><a href="#tab3" data-toggle="tab">Tab3</a></li>
+      <li><a href="#tab4" data-toggle="tab">Tab4</a></li>
+      <li><a href="#tab5" data-toggle="tab">Tab5</a></li>
+    </ul> 
+    <div id="my-tab-content" class="tab-content">  
+      <div class="tab-pane active" id="tab1">
+        <h5>Tab1</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget sollicitudin nibh. Duis semper, diam sed iaculis dictum, libero erat molestie dui, ac suscipit felis leo sed ipsum. </p>
+      </div>
+      
+      <div class="tab-pane" id="tab2">
+        
+        <h5>Tab2</h5>
+        <p>Donec pellentesque sapien neque, ac lobortis erat facilisis quis. Praesent faucibus arcu eros. Proin id tortor euismod, vulputate neque id, placerat nunc.</p>
+      </div>
+      
+      <div class="tab-pane" id="tab3">
+        <h5>Tab3</h5>
+        <p>Duis justo mi, egestas euismod placerat a, eleifend vitae lacus. Integer non odio nec libero lacinia vulputate. Phasellus ante lectus, congue vel volutpat vitae, dictum quis est. </p>
+      </div>
+      
+      <div class="tab-pane" id="tab4">
+        <h5>Tab4</h5>
+        <p>Nulla varius sit amet augue vel consequat. Aenean faucibus vehicula interdum. Integer eleifend, lectus eget vulputate feugiat, nibh nulla congue ipsum, eu mattis tortor nulla vitae diam. Maecenas rutrum risus non libero ullamcorper, nec vehicula sapien tincidunt. </p>
+      </div>
+      
+      <div class="tab-pane" id="tab5">
+        <h5>Tab5</h5>
+        <p>Suspendisse vulputate ornare dui, sed luctus est mattis nec. Curabitur ut dolor eleifend, vulputate purus et, ullamcorper tortor. In posuere ultricies lectus. Vestibulum vitae odio ut est sagittis porta. </p>
+      </div>
+    </div>
+    <script type="text/javascript">
+      jQuery(document).ready(function ($) {
+          $('#tabs').tab();
+      });
+    </script>  
+  </div>
+</div>
+{% endblock %}

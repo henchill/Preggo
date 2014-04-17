@@ -1,0 +1,30 @@
+{% extends "preggo/base.html" %}
+
+{% load static %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+
+<div>
+	<div id="content" style="background-color:#F5F5DC;height:800px;width:1000px;float:left;">
+		<p class= 'pageTitle'> Welcome to Preggo </p>
+		<form id="login_welcome" method="post" action="/preggo/login/">
+			{% csrf_token %}
+			<div id="content" style="background-color:#F5F5DC;height:400px;width:400px;float:left;">
+				Username: <input type="text" name="username" value="" size="50" /><br>
+				Password: <input type="password" name="password" value="" size="50"><br>
+				<!-- <input type="submit" value="Log In"> -->
+				<button  type="submit" class="btn btn-med btn-link">Log In</button>
+				<a href="/preggo/signup.html" class="btn btn-med">Sign Up</a>
+			</div>
+		</from>
+		<div id="content" style="background-color:#F5F5DC;height:400px;width:400px;float:left;">
+			<p> <a href="/preggo/medfacts.html" class="buttonFormat">Medical Facts</a> </p>
+			<p> <a href="#" class="buttonFormat">Blogs</a> </p>
+			<p> <a href="#" class="buttonFormat">Forum</a> </p>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,25 +1,25 @@
-<!DOCTYPE html>
+{% extends "preggo/base.html" %}
 
-<html>
-	<head>
-		<title>Preggo</title>
-	</head>
+{% load static %} <!-- Says we'll be using static data -->
 
-	<body>
-		<h1>{{ post_title }}</h1>
-		{% if post %}
-			<p>{{ post.content }}</p>
-			{% if comments %}
-			<ul>
-				{% for comm in comments %}
-				<li> {{ comm.content }} </li>
-				{% endfor %}
-			</ul>
-			{% else %}
-				<strong>No comments yet</strong>
-			{% endif %}
+{% block title %}{{post_title}}{% endblock %}
+
+{% block content %}
+	<h1>{{ post_title }}</h1>
+	{% if post %}
+		<p>{{ post.content }}</p>
+		{% if comments %}
+		<ul>
+			{% for comm in comments %}
+			<li> {{ comm.content }} </li>
+			{% endfor %}
+		</ul>
 		{% else %}
-			No post exists with the given title
+			<strong>No comments yet</strong>
 		{% endif %}
-		<a href="/preggo/post/{{ post.url }}/add_comment/">Add a New Comment</a>
-	</body>
+	{% else %}
+		No post exists with the given title
+	{% endif %}
+	<br>
+	<a href="/preggo/post/{{ post.url }}/add_comment/">Add a New Comment</a>
+{% endblock %}
