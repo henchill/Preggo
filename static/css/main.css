@@ -181,11 +181,6 @@
 	margin-bottom: 30px;
 }
 
-.row {
-	display: table-row;
-	
-}
-
 [class*="col-"] {
     float: none;
     display: table-cell;
@@ -207,7 +202,12 @@ span.glyphicon-thumbs-up, span.glyphicon-thumbs-down {
 }
 
 .question-list {
-	border-bottom: 2px solid #ddd;	
+  display: table-row;  
+  width: 100%;
+}
+
+.quest-list {
+    display: table;
 }
 
 .question-content {
@@ -235,4 +235,14 @@ span.glyphicon-thumbs-up, span.glyphicon-thumbs-down {
 
 #reply{
 	margin-left: 10px;
+}
+
+#login_welcome {
+    
+}
+
+#shortcut-buttons {
+    text-align: center;
+    height:400px;
+    width:400px;
 }
