@@ -199,7 +199,7 @@ def add_question(request):
 			question.user = request.user
 			question.save()
 			# Send request to view the index view
-			return index(request)
+			return HttpResponseRedirect('/preggo/forum/')
 		else:
 			# The form contained an error. Print erros to terminal
 			print form.errors
