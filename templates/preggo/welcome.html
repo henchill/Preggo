@@ -7,31 +7,28 @@
 {% block content %}
 
 <div>
-	
-		<p class='pageTitle'> Welcome to Preggo </p>
-		<div class="container">
+	<p class='pageTitle'> Welcome to Preggo </p>
+	<div class="container">
 		<div class="row">
-                  <div class='col-md-6 col-lg-3'>
-                    <form id="login_welcome" method="post" action="/preggo/login/" role="form">
-			{% csrf_token %}
-			<div id="form-content" style="height:400px;width:400px;float:left;">
-				Username: <input type="text" name="username" value="" size="50" /><br>
-				Password: <input type="password" name="password" value="" size="50"><br>
-				<!-- <input type="submit" value="Log In"> -->
-				<div class="pull-right">
-				<button  type="submit" class="btn btn-link">Log In</button>
-				<a href="/preggo/signup" class="btn btn-med">Sign Up</a>
-				</div>
-			</div>
-                    </from>
-                  </div>
-                  <div class="col-md-6 col-lg-3">
-                    <div id="shortcut-buttons" style="">
-			<p> <a href="/preggo/medfacts" class="buttonFormat">Medical Facts</a> </p>
-			<p> <a href="#" class="buttonFormat">Blogs</a> </p>
-			<p> <a href="/preggo/forum" class="buttonFormat">Forum</a> </p>
-                    </div>
-                  </div>
+        	<div class='col-md-6 col-lg-3'>
+	            <form class="form-signin" id="login_welcome" method="post" action="/preggo/login/" role="form">
+					{% csrf_token %}
+					<input type="text" class="input-block-level" name="username" value="" size="50" placeholder="Username"/><br>
+					<input type="password" class="input-block-level" name="password" value="" size="50" placeholder="Password"><br>
+					<!-- <input type="submit" value="Log In"> -->
+					<div class="pull-right">
+						<button  type="submit" class="btn btn-med">Log In</button>
+						<a href="/preggo/signup"><button class="btn btn-med">Sign Up</button></a>
+					</div>
+	            </form>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div id="shortcut-buttons" style="">
+					<p> <a href="/preggo/medfacts" class="buttonFormat">Medical Facts</a> </p>
+					<p> <a href="#" class="buttonFormat">Blogs</a> </p>
+					<p> <a href="/preggo/forum" class="buttonFormat">Forum</a> </p>
+                </div>
+            </div>
 		</div>
 	</div>
 </div>
