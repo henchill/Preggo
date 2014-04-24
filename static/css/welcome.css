@@ -1,0 +1,48 @@
+#preggo-info {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#login-box {
+  margin-top: 30px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#shortcut-buttons {
+/*   margin-top: 30px; */
+  vertical-align: middle;
+
+/*   text-align: center; */
+}
+
+.shortcut-button {
+/*   text-align: center; */
+}
+
+#signin-form {
+/*   width: 75%; */
+  margin: 0px;
+  text-align: center;
+}
+
+#signup-link {
+  margin-top: 30px;
+}
+
+#submit-button {
+  width: 25%;
+}
+
+.login-input {
+  height: 3em;
+  border-radius: 2px;
+  padding-left: 10px;
+}
+
+.form-control {
+  width: 75%;
+  margin-left: 12%;
+}
+
