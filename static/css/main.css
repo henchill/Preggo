@@ -1,105 +1,106 @@
 /*Referenced from the button generator site: http://www.cssbuttongenerator.com*/
 .buttonFormat {
-	-moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
-	box-shadow:inset 0px 1px 0px 0px #d9fbbe;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356), color-stop(1, #a5cc52) );
-	background:-moz-linear-gradient( center top, #b8e356 5%, #a5cc52 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52');
-	background-color:#b8e356;
-	-webkit-border-top-left-radius:42px;
-	-moz-border-radius-topleft:42px;
-	border-top-left-radius:42px;
-	-webkit-border-top-right-radius:0px;
-	-moz-border-radius-topright:0px;
-	border-top-right-radius:0px;
-	-webkit-border-bottom-right-radius:42px;
-	-moz-border-radius-bottomright:42px;
-	border-bottom-right-radius:42px;
-	-webkit-border-bottom-left-radius:0px;
-	-moz-border-radius-bottomleft:0px;
-	border-bottom-left-radius:0px;
-	text-indent:0;
-	border:3px solid #FFC0CB;/* box outline */
-	display:inline-block;
-	color:#F0FFFF;/* text in the box */
-	font-family:Arial;
-	font-size:25px;
-	font-weight:bold;
-	font-style:normal;
-	height:100px;
-	line-height:100px;
-	width:200px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #86ae47;
-	position: relative;
-	left:80px;
+    -moz-box-shadow:inset 0px 1px 0px 0px #0b95ec;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #0b95ec;
+    box-shadow:inset 0px 1px 0px 0px #0b95ec;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0d8bd9), color-stop(1, #3495d1) );
+    background:-moz-linear-gradient( center top, #0d8bd9 5%, #3495d1 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d8bd9', endColorstr='#3495d1');
+    background-color:#0d8bd9;
+    -webkit-border-top-left-radius:42px;
+    -moz-border-radius-topleft:42px;
+    border-top-left-radius:42px;
+    -webkit-border-top-right-radius:0px;
+    -moz-border-radius-topright:0px;
+    border-top-right-radius:0px;
+    -webkit-border-bottom-right-radius:42px;
+    -moz-border-radius-bottomright:42px;
+    border-bottom-right-radius:42px;
+    -webkit-border-bottom-left-radius:0px;
+    -moz-border-radius-bottomleft:0px;
+    border-bottom-left-radius:0px;
+    text-indent:0;
+    border:3px solid #FFC0CB;/* box outline */
+    display:inline-block;
+    color:#F0FFFF;/* text in the box */
+    font-family:Arial;
+    font-size:25px;
+    font-weight:bold;
+    font-style:normal;
+    height:100px;
+    line-height:100px;
+    width:200px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #86ae47;
+    position: relative;
+    left:80px;
 }
 
 .buttonFormat-fran {
-	-moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
-	box-shadow:inset 0px 1px 0px 0px #d9fbbe;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356), color-stop(1, #a5cc52) );
-	background:-moz-linear-gradient( center top, #b8e356 5%, #a5cc52 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52');
-	background-color:#b8e356;
-	-webkit-border-top-left-radius:42px;
-	-moz-border-radius-topleft:42px;
-	border-top-left-radius:42px;
-	-webkit-border-top-right-radius:0px;
-	-moz-border-radius-topright:0px;
-	border-top-right-radius:0px;
-	-webkit-border-bottom-right-radius:42px;
-	-moz-border-radius-bottomright:42px;
-	border-bottom-right-radius:42px;
-	-webkit-border-bottom-left-radius:0px;
-	-moz-border-radius-bottomleft:0px;
-	border-bottom-left-radius:0px;
-	text-indent:0;
-	border:3px solid #FFC0CB;/* box outline */
-	display:inline-block;
-	color:#F0FFFF;/* text in the box */
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	font-style:normal;
-	line-height:30px;
-	width:150px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #86ae47;
+    -moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+    box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0d8bd9), color-stop(1, #3495d1) );
+    background:-moz-linear-gradient( center top, #0d8bd9 5%, #3495d1 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d8bd9', endColorstr='#3495d1');
+    background-color:#0d8bd9;
+    -webkit-border-top-left-radius:42px;
+    -moz-border-radius-topleft:42px;
+    border-top-left-radius:42px;
+    -webkit-border-top-right-radius:0px;
+    -moz-border-radius-topright:0px;
+    border-top-right-radius:0px;
+    -webkit-border-bottom-right-radius:42px;
+    -moz-border-radius-bottomright:42px;
+    border-bottom-right-radius:42px;
+    -webkit-border-bottom-left-radius:0px;
+    -moz-border-radius-bottomleft:0px;
+    border-bottom-left-radius:0px;
+    text-indent:0;
+    border:3px solid #FFC0CB;/* box outline */
+    display:inline-block;
+    color:#F0FFFF;/* text in the box */
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    font-style:normal;
+    line-height:30px;
+    width:150px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #86ae47;
 }
 
 .buttonFormat:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a5cc52), color-stop(1, #b8e356) );
-	background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
-	background-color:#a5cc52;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3495d1), color-stop(1, #0d8bd9) );
+    background:-moz-linear-gradient( center top, #3495d1 5%, #0d8bd9 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3495d1', endColorstr='#0d8bd9');
+    background-color:#3495d1;
+        color:  #fff;
 }
 
 .buttonFormat:active {
-	position:relative;
-	top:1px;
+    position:relative;
+    top:1px;
 }
 
 
 .buttons{
-	position: relative;
-	height: 30px;
-	margin-bottom: 20px;
+    position: relative;
+    height: 30px;
+    margin-bottom: 20px;
 }
 
 .pageTitle{
-	font-size: 80px;
-	font-weight: bold;
-	font-style: italic;
-	color: #FFC0CB;
-	font-family: Helvetica;
-	position: relative;
-	/*left: 200px;*/
-	text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+    font-style: italic;
+    color: #0b95ec;
+    font-family: Helvetica;
+    position: relative;
+    /*left: 200px;*/
+    text-align: center;
 }
 
 /* http://code-tricks.com/create-a-simple-html5-tabs-using-jquery/ */
@@ -123,62 +124,62 @@
 }
 
 #container {
-	border: 1px solid #ddd;
-	padding: 10px;
-	overflow: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    overflow: auto;
 }
 
 #reply_button{
-	position: relative;
-	float: right;
-	margin-right: 20px;
+    position: relative;
+    float: right;
+    margin-right: 20px;
 }
 
 .q1_rating_table td{
-	text-align: center;
+    text-align: center;
 }
 
 #ask_question{
-	position: relative;
-	left: 2%;
-	float: left;
+    position: relative;
+    left: 2%;
+    float: left;
 }
 
 
 .warning_note{
-	position: relative;
-	text-align: center;
-	vertical-align: middle;
-	outline:#FFC0CB outset thick;
-	height: 30px;
-	margin: 15px;
-	padding: 5px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    outline:#FFC0CB outset thick;
+    height: 30px;
+    margin: 15px;
+    padding: 5px;
 }
 
 .warning_note {
-	margin-top: 5px;
-	text-align: center;
-	vertical-align: middle;
-	font-size: 17px;
-	margin-bottom: 15px;
+    margin-top: 5px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 17px;
+    margin-bottom: 15px;
 }
 
 #find_answers{
-	position: relative;
-	right: 2%;
-	float: right;
+    position: relative;
+    right: 2%;
+    float: right;
 }
 
 .filters{
-	margin: 15px;
+    margin: 15px;
 }
 
 .box{
-	outline:#FFC0CB outset thick;
-	padding: 15px;
-	overflow: hidden;
-	margin-top: 30px;
-	margin-bottom: 30px;
+    outline:#FFC0CB outset thick;
+    padding: 15px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 [class*="col-"] {
@@ -188,17 +189,17 @@
 }
 
 .thumbs-container{
-	text-align: center;
-	vertical-align: middle;
-	height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
 }
 
 span.glyphicon-thumbs-up, span.glyphicon-thumbs-down {
-	font-size: 2em;
+    font-size: 2em;
 }
 
 .votes {
-	margin-top: .5em;
+    margin-top: .5em;
 }
 
 .question-list {
@@ -223,38 +224,91 @@ span.glyphicon-thumbs-up, span.glyphicon-thumbs-down {
 }
 
 .question-content {
-	float: left;
-	margin: 10px;
-	display: block;
-	width: 100%;
+    float: left;
+    margin: 10px;
+    display: block;
+    width: 100%;
 }
 
 .question-footer {
-	display: block;
+    display: block;
 }
 
 .question-footer > a {
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 .comments p{
-	width: 85%;
+    width: 85%;
 }
 
 .tabContent p{
-	width: 85%;
+    width: 85%;
 }
 
 #reply{
-	margin-left: 10px;
+    margin-left: 10px;
 }
 
 #login_welcome {
     
 }
 
-#shortcut-buttons {
-    text-align: center;
-    height:400px;
-    width:400px;
+form {
+  text-align: center;
+  vertical-align: middle;
+}
+
+input {
+  margin: 10px;
+  font: 16px;
+}
+
+/* Menu bar style*/
+#main-nav {
+/*   background-color: #111; */
+  border: none;
+  border-radius: 0px;
+  height: 75px;
+  color: #000000;
+}
+
+#logo {
+  color: #0b95ec;
+  font-size: 4em;
+  margin: 10px;
+/*   height: 75px; */
+}
+
+#menu-items {
+/*   color: #fff; */
+  margin-top: 25px;
+}
+
+#menu-items > a {
+  color: #0b95ec;
+}
+
+.nav-links {
+  color: #0b95ec;
+  &:hover, &:focus {
+    color: #fff;
+  }
+
+}
+
+body {
+  background-color: #fff; /*rgba(255, 192, 203, 0.2);*/
+}
+
+.btn:hover {
+  text-decoration: underline;
+  color: ;
+}
+
+.section {
+  border: 1px solid;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 10px;
 }

@@ -7,30 +7,35 @@
 {% block content %}
 
 <div>
-	<p class='pageTitle'> Welcome to Preggo </p>
-	<div class="container">
-		<div class="row">
-        	<div class='col-md-6 col-lg-3'>
-	            <form class="form-signin" id="login_welcome" method="post" action="/preggo/login/" role="form">
-					{% csrf_token %}
-					<input type="text" class="input-block-level" name="username" value="" size="50" placeholder="Username"/><br>
-					<input type="password" class="input-block-level" name="password" value="" size="50" placeholder="Password"><br>
-					<!-- <input type="submit" value="Log In"> -->
-					<div class="pull-right">
-						<button  type="submit" class="btn btn-med">Log In</button>
-						<a href="/preggo/signup"><button class="btn btn-med">Sign Up</button></a>
-					</div>
-	            </form>
+    <p class='pageTitle'> Welcome to Preggo </p>
+    <div class="container">
+        <div class="section" id="preggo-info"> 
+          <h3>Preggo is a social network for individuals trying to have a baby, pregnant women, and new moms. It provides a platform where people can ask questions and share their experiences</h3>
+        </div>
+        <div class="row section">
+            <div class='col-md-6 col-lg-3' id="login-box">
+                <form id="signin-form" method="post" action="/preggo/login/" role="form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <input class="login-input form-control" type="text" name="username" value="" size="50" placeholder="Username"/>
+                      <input class="login-input form-control" type="password" name="password" value="" size="50" placeholder="Password">
+                    </div>
+                    <div class="from-group">
+                        <!--<button  type="submit" class="btn btn-med">Log In</button>-->
+                        <button type="submit" class="btn btn-lg" id="submit-button">Log In</button>
+                    </div>
+                </form>
+                
+                <p id="signup-link"><a href="/preggo/signup">Create an account</a></p>
+                
             </div>
-            <div class="col-md-6 col-lg-3">
-                <div id="shortcut-buttons" style="">
-					<p> <a href="/preggo/medfacts" class="buttonFormat">Medical Facts</a> </p>
-					<p> <a href="#" class="buttonFormat">Blogs</a> </p>
-					<p> <a href="/preggo/forum" class="buttonFormat">Forum</a> </p>
-                </div>
+            <div class="col-md-6 col-lg-3" id="shortcut-buttons">
+                <div class="shortcut-button"> <a href="/preggo/medfacts" class="buttonFormat">Medical Facts</a> </p>
+                <p class="shortcut-button"> <a href="#" class="buttonFormat">Blogs</a> </p>
+                <p class="shortcut-button"> <a href="/preggo/forum" class="buttonFormat">Forum</a> </p>
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
