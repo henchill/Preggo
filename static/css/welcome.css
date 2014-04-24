@@ -13,6 +13,7 @@
 #shortcut-buttons {
 /*   margin-top: 30px; */
   vertical-align: middle;
+  padding-left: 130px;
 
 /*   text-align: center; */
 }
@@ -33,11 +34,13 @@
 
 #submit-button {
   width: 25%;
+  background-color: #0b95ec;
+  color: #fff;
 }
 
 .login-input {
   height: 3em;
-  border-radius: 2px;
+  border-radius: 5px;
   padding-left: 10px;
 }
 
