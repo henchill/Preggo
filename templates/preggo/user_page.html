@@ -8,34 +8,65 @@
 
 <div class="container">
   <h1 class="pageTitle">My Blog</h1>
-  <div class="row">
-    <div class="col-md-3 col-lg-1 section" id="user-info">
-      <p>user information section</p>
-    </div>
-    <div class="col-md-8 col-lg-3 section" id="user-posts">
-       {% if posts %}
-          {% for post in posts %}
-          <div class="row question-list">
-            <div class="col-md-10 col-lg-10">
-              <h4>{{ post.title }}</h4>
-              <div class="question-content">{{ post.content }}</div>
-              <div class="question-footer">
-                <a href='/preggo/post/{{post.url}}'>View Responses</a>
-                <a href='/preggo/post/{{post.url}}/add_comment'>Comment</a>
-              </div>
+  <div class="section" id="user-info">
+    <p>user information section</p>
+  </div>
+  <div class="section pull-right" id="user-posts">
+    <ul class="nav nav-tabs" data-tabs="tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab">All Posts</a></li>
+      <li><a href="#tab2" data-toggle="tab">My Posts</a></li>
+    </ul>
+    
+    <div class="tab-content">
+      <div class="tab-pane active " id="tab1">
+      {% if user_posts %}
+        {% for post in user_posts %}
+        <div class="row question-list">
+          <div class="col-lg-10">
+            <h4>{{ post.title }}</h4>
+            <div class="question-content">{{ post.content }}</div>
+            <div class="question-footer">
+              <a href='/preggo/post/{{post.url}}'>View Responses</a>
+              <a href='/preggo/post/{{post.url}}/add_comment'>Comment</a>
             </div>
-            <div class="thumbs-container col-md-1 col-lg-1">
-              <span class="glyphicon glyphicon-thumbs-up"></span>
-              <div class="votes">10</div>
-            </div>
-            <div class="thumbs-container col-md-1 col-lg-1">
-              <span class="glyphicon glyphicon-thumbs-down"></span>
-              <div class="votes">4</div>
-            </div>
-          </div>          
+          </div>
+          <div class="thumbs-container col-lg-1">
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+            <div class="votes">10</div>
+          </div>
+          <div class="thumbs-container col-lg-1">
+            <span class="glyphicon glyphicon-thumbs-down"></span>
+            <div class="votes">4</div>
+          </div>
+        </div>          
         {% endfor %}
       {% endif %}
+      </div>
+      <div class="tab-pane active " id="tab2">
+      {% if all_posts %}
+        {% for post in all_posts %}
+        <div class="row question-list">
+          <div class="col-lg-10">
+            <h4>{{ post.title }}</h4>
+            <div class="question-content">{{ post.content }}</div>
+            <div class="question-footer">
+              <a href='/preggo/post/{{post.url}}'>View Responses</a>
+              <a href='/preggo/post/{{post.url}}/add_comment'>Comment</a>
+            </div>
+          </div>
+          <div class="thumbs-container col-lg-1">
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+            <div class="votes">10</div>
+          </div>
+          <div class="thumbs-container col-lg-1">
+            <span class="glyphicon glyphicon-thumbs-down"></span>
+            <div class="votes">4</div>
+          </div>
+        </div>          
+        {% endfor %}
+      {% endif %}
+      </div>
     </div>
-  </div>
+  </div>  
 </div>
 {% endblock %}

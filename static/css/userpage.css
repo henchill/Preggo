@@ -1,8 +1,11 @@
 #user-info {
 /*   border: 1px solid black; */
-  margin-right: 20px;
+  width: 27%;
+  float: left;
+  margin-right: 0px;
 }
 
 #user-posts {
 /*   border: 1px solid black; */
+  width: 67%;
 }

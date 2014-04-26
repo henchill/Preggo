@@ -294,11 +294,13 @@ def forum(request):
 def user_page(request, user_url):
 	context = RequestContext(request)
 
-	post_list = request.user.post_set.all()
+	user_posts = request.user.post_set.all()
+        all_posts = Post.objects.all()
 
-
-	for post in post_list:
+	for post in all_posts:
 		post.url = post.title.replace(' ', '_')
+	for post in user_posts:
+                post.url = post.title.replace(' ', '_')	
 
-	context_dict = {"posts": post_list}
+	context_dict = {"all_posts": all_posts, "user_posts": user_posts}
 	return render_to_response('preggo/user_page.html', context_dict, context)
