@@ -296,9 +296,12 @@ def user_page(request, user_url):
 
 	user_posts = request.user.post_set.all()
         all_posts = Post.objects.all()
+        print "all posts", all_posts
+        print "user posts", user_posts
 
 	for post in all_posts:
 		post.url = post.title.replace(' ', '_')
+		
 	for post in user_posts:
                 post.url = post.title.replace(' ', '_')	
 
