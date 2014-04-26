@@ -293,11 +293,11 @@ def forum(request):
 @login_required
 def user_page(request, user_url):
 	context = RequestContext(request)
-
-	user_posts = request.user.post_set.all()
+        user = request.user
+        user_profile = UserProfile.objects.get(user=user)
+	user_posts = user.post_set.all()
         all_posts = Post.objects.all()
-        print "all posts", all_posts
-        print "user posts", user_posts
+        picture = user_profile.picture
 
 	for post in all_posts:
 		post.url = post.title.replace(' ', '_')
@@ -305,5 +305,7 @@ def user_page(request, user_url):
 	for post in user_posts:
                 post.url = post.title.replace(' ', '_')	
 
-	context_dict = {"all_posts": all_posts, "user_posts": user_posts}
+	context_dict = {"all_posts": all_posts,
+                        "user_posts": user_posts,
+                        "picture": picture}
 	return render_to_response('preggo/user_page.html', context_dict, context)
