@@ -7,6 +7,10 @@
         <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
         <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet">
         <link href="{{ STATIC_URL }}css/welcome.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}css/medfacts.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}css/forum.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}css/userpage.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
         <title>{% block title %}Preggo{% endblock %}</title>
@@ -24,8 +28,8 @@
                         <li><a href="/preggo/medfacts">MedFacts</a></li>
                         <li><a href="/preggo/forum">Forum</a></li>
                         {% if user.is_authenticated %}
-                            <!-- <li><a href="/preggo/{{user.username}}">UserPage</a></li> -->
-                            <li><a href="#">UserPage</a></li>
+                             <li><a href="/preggo/{{user.username}}">UserPage</a></li> 
+<!--                             <li><a href="#">UserPage</a></li> -->
                         {% else %}
                             <li><a href="#">UserPage</a></li>
                         {% endif %}

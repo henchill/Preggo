@@ -7,15 +7,16 @@
 {% block content %}
 
 <div class="container">
+  <h1 class="pageTitle">My Blog</h1>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 col-lg-1 section" id="user-info">
       <p>user information section</p>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8 col-lg-3 section" id="user-posts">
        {% if posts %}
           {% for post in posts %}
-          <div class="row">
-            <div class="col-md-10">
+          <div class="row question-list">
+            <div class="col-md-10 col-lg-10">
               <h4>{{ post.title }}</h4>
               <div class="question-content">{{ post.content }}</div>
               <div class="question-footer">
@@ -23,16 +24,15 @@
                 <a href='/preggo/post/{{post.url}}/add_comment'>Comment</a>
               </div>
             </div>
-            <div class="thumbs-container col-md-1">
+            <div class="thumbs-container col-md-1 col-lg-1">
               <span class="glyphicon glyphicon-thumbs-up"></span>
               <div class="votes">10</div>
             </div>
-            <div class="thumbs-container col-md-1">
+            <div class="thumbs-container col-md-1 col-lg-1">
               <span class="glyphicon glyphicon-thumbs-down"></span>
               <div class="votes">4</div>
             </div>
-          </div>
-          <hr>
+          </div>          
         {% endfor %}
       {% endif %}
     </div>

@@ -23,7 +23,7 @@
     border:3px solid #FFC0CB;/* box outline */
     display:inline-block;
     color:#F0FFFF;/* text in the box */
-    font-family:Arial;
+/*     font-family:Arial; */
     font-size:25px;
     font-weight:bold;
     font-style:normal;
@@ -61,7 +61,7 @@
     border:3px solid #FFC0CB;/* box outline */
     display:inline-block;
     color:#F0FFFF;/* text in the box */
-    font-family:Arial;
+    /*font-family:Arial;*/
     font-size:15px;
     font-weight:bold;
     font-style:normal;
@@ -95,9 +95,8 @@
 .pageTitle{
     font-size: 80px;
     font-weight: bold;
-    font-style: italic;
     color: #0b95ec;
-    font-family: Helvetica;
+    font-family: 'Ruluko', 'sans-serif';
     position: relative;
     /*left: 200px;*/
     text-align: center;
@@ -139,36 +138,6 @@
     text-align: center;
 }
 
-#ask_question{
-    position: relative;
-    left: 2%;
-    float: left;
-}
-
-
-.warning_note{
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    outline:#FFC0CB outset thick;
-    height: 30px;
-    margin: 15px;
-    padding: 5px;
-}
-
-.warning_note {
-    margin-top: 5px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 17px;
-    margin-bottom: 15px;
-}
-
-#find_answers{
-    position: relative;
-    right: 2%;
-    float: right;
-}
 
 .filters{
     margin: 15px;
@@ -202,45 +171,7 @@ span.glyphicon-thumbs-up, span.glyphicon-thumbs-down {
     margin-top: .5em;
 }
 
-.question-list {
-  display: table-row;  
-  width: 100%;
-  border-bottom: 1px solid #ddd;
-  
-}
 
-#form-content {
-  width: 75%;
-  align: center;
-}
-
-.question-list > [class*="col-"]{
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-}
-
-.quest-list {
-    display: table;
-}
-
-.question-content {
-    float: left;
-    margin: 10px;
-    display: block;
-    width: 100%;
-}
-
-.question-footer {
-    display: block;
-}
-
-.question-footer > a {
-    margin-right: 20px;
-}
-
-.comments p{
-    width: 85%;
-}
 
 .tabContent p{
     width: 85%;
@@ -298,7 +229,11 @@ input {
 }
 
 body {
-  background-color: #fff; /*rgba(255, 192, 203, 0.2);*/
+  font-family: 'Ruluko', 'sans-serif';
+}
+
+body {
+  background-color: rgba(255, 192, 203, 0.2);
 }
 
 .btn:hover {
@@ -307,8 +242,9 @@ body {
 }
 
 .section {
-  border: 1px solid;
+  border: 1px solid #fcc;
+  background-color: #fff;
   border-radius: 25px;
   padding: 20px;
-  margin: 10px;
+  margin: 20px;
 }

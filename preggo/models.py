@@ -28,7 +28,7 @@ class UserProfile(models.Model):
 	user = models.OneToOneField(User)
 
 	# additional attributes
-	picture = models.ImageField(upload_to='profile_images', blank=True)
+	picture = models.ImageField(upload_to='profile_images', default='/static/media/profile_images/default_profile.jpg')
 
 	def get_absolute_url(self):
 		return "/preggo/%s" % self.user.username
