@@ -13,3 +13,39 @@
 #profile-image {
   width: 100%;
 }
+
+.single-post > [class*="col-"]{
+  border-bottom: 1px solid #bbb;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.post-list {
+    display: table;
+}
+
+.post-content {
+    float: left;
+    margin: 10px;
+    display: block;
+    width: 100%;
+}
+
+.post-footer {
+    display: block;
+}
+
+.post-footer > a {
+    margin-right: 20px;
+}
+
+.post-title {
+  font-weight: bold;
+}
+
+.post-list {
+  display: table-row;  
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  
+}

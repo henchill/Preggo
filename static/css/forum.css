@@ -48,6 +48,10 @@
     margin-right: 20px;
 }
 
+.question-title {
+  font-weight: bold;
+}
+
 .question-list {
   display: table-row;  
   width: 100%;
@@ -62,4 +66,9 @@
 
 .comments p{
     width: 85%;
+}
+
+.vote-img {
+  border: none;
+  background-color: #fff;
 }

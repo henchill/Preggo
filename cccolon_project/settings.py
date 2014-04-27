@@ -40,7 +40,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+#    'haystack',
     'preggo',
+    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,7 +104,14 @@ MEDIA_URL = '/static/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
 LOGIN_URL = '/preggo/login/'
-
+"""
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhoshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    },
+}
+"""
 if not DEVELOPMENT:
     DATABASES['default'] = dj_database_url.config()
     DEBUG = False

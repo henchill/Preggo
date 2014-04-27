@@ -14,6 +14,10 @@ urlpatterns = patterns('',
 	url(r'^logout/$', views.user_logout, name="logout"),
 	url(r'^medfacts/$', views.medfacts, name="medfacts"),
 	url(r'^forum/$', views.forum, name="forum"),
-	url(r'^(?P<user_url>\w+)/$', views.user_page, name="user_page"),
+	url(r'^user/(?P<user_url>\w+)/$', views.user_page, name="user_page"),
+	url(r'^upvote_question/$', views.upvote_question, name="upvote_question"),
+	url(r'^downvote_question/$', views.downvote_question, name="downvote_question"),
+	url(r'^upvote_post/$', views.upvote_post, name="upvote_post"),
+        url(r'^downvote_post/$', views.downvote_post, name="downvote_post"),
 	
 )

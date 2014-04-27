@@ -171,18 +171,8 @@ span.glyphicon-thumbs-up, span.glyphicon-thumbs-down {
     margin-top: .5em;
 }
 
-
-
 .tabContent p{
     width: 85%;
-}
-
-#reply{
-    margin-left: 10px;
-}
-
-#login_welcome {
-    
 }
 
 form {
@@ -214,6 +204,8 @@ input {
 #menu-items {
 /*   color: #fff; */
   margin-top: 25px;
+  font-size: 1.4em;
+  color: #00f;
 }
 
 #menu-items > a {

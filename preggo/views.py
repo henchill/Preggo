@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 from preggo.models import Post, Comment, Question, Answer
 
@@ -234,6 +235,68 @@ def view_question(request, question_title_url):
 		pass
 
 	return render_to_response("preggo/view_question.html", context_dict, context)
+
+@login_required 
+def upvote_question(request):
+    context = RequestContext(request)
+    quest_id = None
+    if request.method == 'GET':
+        quest_id = request.GET['question_id']   
+    upvotes = 0
+    if quest_id:
+        question = Question.objects.get(id=int(quest_id))
+        if question:            
+            upvotes = question.upvotes + 1
+            question.upvotes = upvotes
+            question.save()
+    return HttpResponse(upvotes)
+
+@login_required
+def downvote_question(request):
+    context = RequestContext(request)
+    quest_id = None
+    if request.method == 'GET':
+        quest_id = request.GET['question_id']
+        
+    downvotes = 0
+    if quest_id:
+        question = Question.objects.get(id=int(quest_id))
+        if question:
+            downvotes = question.downvotes + 1
+            question.downvotes = downvotes
+            question.save()
+    return HttpResponse(downvotes)
+  
+@login_required 
+def upvote_post(request):
+    context = RequestContext(request)
+    post_id = None
+    if request.method == 'GET':
+        post_id = request.GET['post_id']   
+    upvotes = 0
+    if post_id:
+        post = Post.objects.get(id=int(post_id))
+        if post:            
+            upvotes = post.upvotes + 1
+            post.upvotes = upvotes
+            post.save()
+    return HttpResponse(upvotes)
+
+@login_required
+def downvote_post(request):
+    context = RequestContext(request)
+    post_id = None
+    if request.method == 'GET':
+        post_id = request.GET['post_id']
+        
+    downvotes = 0
+    if post_id:
+        post = Post.objects.get(id=int(post_id))
+        if post:
+            downvotes = post.downvotes + 1
+            post.downvotes = downvotes
+            post.save()
+    return HttpResponse(downvotes)
 
 @login_required
 def add_answer(request, question_title_url):
