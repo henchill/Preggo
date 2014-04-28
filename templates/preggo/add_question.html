@@ -15,15 +15,30 @@
 		{% endfor %}
 
                 <div class="form-group">
-                    <input type="text" name="title" value="" placeholder="Give your Question a Title"/>
-                </div>
-                <div class="form-group">
-                    <textarea name="content" value="" placeholder="Enter your question here"></textarea>
+
+                    Question Title: 
+					<input type="text" name="title" value="" placeholder="Give your Question a Title"><br><br>
+
+					Category: <br>
+					<select id="selectbasic" name="selectbasic" class="selectpicker">
+			          <option>Select Category</option>
+			          <option>Planning</option>
+			          <option>Preggo</option>
+			          <option>New Mom</option>
+			          <option>Experienced Mom</option>
+			        </select><br><br>
+
+					<a href="questionForm.html">Attach Image</a> - 
+					<a href="questionForm.html">Attach Video</a>
+					<br>
+					<textarea name="content" value="" rows="4" cols="50" placeholder="Enter your question here">
+					</textarea><br>
+
                 </div>
 
 		<input type="submit" name="submit" value="Create Question" />
+		<!-- <a href="forum.html"> --><input type="button" value="Cancel"><!-- </a>  -->
 	</form>
 	
 </div>      
 {% endblock %}
-

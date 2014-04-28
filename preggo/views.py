@@ -240,12 +240,14 @@ def view_question(request, question_title_url):
 def upvote_question(request):
     context = RequestContext(request)
     quest_id = None
+    print "upvote executed"
     if request.method == 'GET':
         quest_id = request.GET['question_id']   
     upvotes = 0
     if quest_id:
         question = Question.objects.get(id=int(quest_id))
-        if question:            
+        if question:     
+        	# print "begin update"
             upvotes = question.upvotes + 1
             question.upvotes = upvotes
             question.save()

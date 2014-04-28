@@ -1,11 +1,14 @@
 $(document).ready(function () {
     // Updates upvotes for questions
     $('.quest-upvotes').each(function () {
-        $(this).click(function(){            
+        $(this).click(function(){        
+
             var questid;
             questid = $(this).attr("data-quest-id");  
-            $.get('/preggo/upvote_question/', {question_id: questid},                                           function(data, status){
-                var selector = "#quest-upvotes-count-" + questid;                                
+            $.get('/preggo/upvote_question/', {question_id: questid},                                        
+                function(data, status){
+                var selector = "#quest-upvotes-count-" + questid;  
+                console.log(data);                              
                 $(selector).html(data);
             });
                             
