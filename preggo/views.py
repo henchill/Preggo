@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from preggo.models import Post, Comment, Question, Answer
 
 from preggo.forms import * #PostForm, CommentForm, QuestionForm, AnswerForm
+from datetime import datetime
 
 @login_required
 def index(request):
@@ -66,6 +67,7 @@ def add_post(request):
 			# Save the new post to the database
 			post = form.save(commit=False)			
 			post.user = request.user
+			post.pub_date = datetime.now()
 			post.save()
 
 			# Send request to view the index view
@@ -100,7 +102,7 @@ def add_comment(request, post_title_url):
 				comment.post = postObj 
 			except Post.DoesNotExist:
 				return_to_response("/preggo/add_post.html", {}, context)
-
+                        comment.pub_date = datetime.now()
 			comment.save()
 
 			# Send request to view the index view
@@ -204,6 +206,7 @@ def add_question(request):
 			# Save the new post to the database
 			question = form.save(commit=False)
 			question.user = request.user
+			question.pub_date = datetime.now()
 			question.save()
 			# Send request to view the index view
 			return HttpResponseRedirect('/preggo/forum/')
@@ -324,7 +327,7 @@ def add_answer(request, question_title_url):
 			try:
 				questionObj = Question.objects.get(title=question_title)
 				answer.question = questionObj
-
+                                answer.pub_date = datetime.now()
 				answer.user = request.user
 
 			except Question.DoesNotExist:

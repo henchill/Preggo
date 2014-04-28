@@ -7,6 +7,7 @@ class Post(models.Model):
 	content = models.TextField()
 	upvotes = models.IntegerField(default=0)
 	downvotes = models.IntegerField(default=0)
+	pub_date = models.DateTimeField('date published')
 
 	def get_absolute_url(self):
 		return "/preggo/post/%s" % self.title.replace(' ', '_')
@@ -19,6 +20,7 @@ class Comment(models.Model):
 	content = models.TextField()
 	upvotes = models.IntegerField(default=0)
 	downvotes = models.IntegerField(default=0)
+	pub_date = models.DateTimeField('date published')
 
 	def __unicode__(self):
 		return self.content
@@ -28,7 +30,7 @@ class UserProfile(models.Model):
 	user = models.OneToOneField(User)
 
 	# additional attributes
-	picture = models.ImageField(upload_to='profile_images', default='/static/media/profile_images/default_profile.jpg')
+	picture = models.ImageField(upload_to='profile_images', default='/static/media/profile_images/default_profile.jpg')	
 
 	def get_absolute_url(self):
 		return "/preggo/%s" % self.user.username
@@ -63,6 +65,7 @@ class Question(models.Model):
 	content = models.TextField()
 	upvotes = models.IntegerField(default=0)
 	downvotes = models.IntegerField(default=0)
+	pub_date = models.DateTimeField('date published')
 
 	def get_absolute_url(self):
 		return "/preggo/question/%s" % self.title.replace(' ', '_')
@@ -76,6 +79,7 @@ class Answer(models.Model):
 	content = models.TextField()
 	upvotes = models.IntegerField(default=0)
 	downvotes = models.IntegerField(default=0)
+	pub_date = models.DateTimeField('date published')
 
 	def __unicode__(self):
 		return self.content

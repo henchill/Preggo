@@ -5,21 +5,15 @@
 {% block title %}Answer Question{% endblock %}
 
 {% block content %}
-	<h1>Add a Answer</h1>
+	<link rel="stylesheet" type="text/css" href="add_answer.css" />
+	<h1 align="center">Add Answer</h1>
+		
 
 	<form id="answer_form" method="post" action="/preggo/question/{{ question_title_url }}/add_answer/">
-		{% csrf_token %}
-		{% for hidden in form.hidden_fields %}
-			{{ hidden }}
-		{% endfor %}
 
-		{% for field in form.visible_fields %}
-			{{ field.errors }}
-			{{ field.label_tag }}
-			{{ field }}
-			<br>
-		{% endfor %}
+	<textarea id="textarea" class="span11" name="textarea" rows="10" cols="50">Enter Answer Here</textarea>
+	<br>
 
-		<input type="submit" name="submit" value="Post Answer" />
+		<input type="submit" name="submit" class="btn btn-med" value="Post Answer"/>
 	</form>
 {% endblock %}
