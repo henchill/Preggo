@@ -5,13 +5,17 @@
 {% block title %}My Questions and Posts{% endblock %}
 
 {% block content %}
+<div class="container">
     <h1 class="pageTitle">Welcome To Preggo</h1>
     <div class="section" id="preggo-info"> 
       <h4>Preggo is a social network for individuals trying to have a baby, pregnant women, and new moms. It provides a platform where people can ask questions and share their experiences</h4>
     </div>
-    <br>
-    <a href="/preggo/add_post/">Share an Experience</a><br>
-    <a href="/preggo/add_question/">Ask a Question</a><br>
-    <a href="/preggo/logout">Logout</a><br>
 
+    <div id="tmp-content">
+        <div id="forumContent" class="section">
+        </div>
+        <div id="blogContent" class="section">
+        </div>
+    </div>
+</div>
 {% endblock %}
