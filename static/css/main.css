@@ -37,6 +37,10 @@
     left:80px;
 }
 
+#med-content {
+    overflow: auto;
+}
+
 .buttonFormat-fran {
     -moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
     -webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
@@ -70,6 +74,33 @@
     text-decoration:none;
     text-align:center;
     text-shadow:1px 1px 0px #86ae47;
+}
+
+#forumContent {
+    width: 45%;
+    float: left;
+}
+
+#blogContent {
+    width:45%;
+    float:right;
+}
+#pictureContent {
+    width: 55%;
+    float: left;
+    padding:10px;
+}
+
+#factsContent {
+    text-align:left;
+    width:35%;
+    float: left;
+    padding:10px;
+}
+
+.medFactsPic {
+    border:2px solid pink;
+    width:300px;
 }
 
 .buttonFormat:hover {
