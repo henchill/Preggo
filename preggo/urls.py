@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 from preggo import views
 
 urlpatterns = patterns('', 
@@ -17,6 +17,6 @@ urlpatterns = patterns('',
 	url(r'^user/(?P<user_url>\w+)/$', views.user_page, name="user_page"),
 	url(r'^upvote_question/$', views.upvote_question, name="upvote_question"),
 	url(r'^downvote_question/$', views.downvote_question, name="downvote_question"),
-	url(r'^upvote_post/$', views.upvote_post, name="upvote_post"),
-    url(r'^downvote_post/$', views.downvote_post, name="downvote_post"),	
+        url(r'^downvote_post/$', views.downvote_post, name="downvote_post"),
+        url(r'^search/', include('haystack.urls')),
 )
