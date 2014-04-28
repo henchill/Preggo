@@ -186,6 +186,12 @@ def user_logout(request):
 
 @login_required
 def add_question(request):
+	#Is the user clicking Cancel?
+	isCancel = request.POST.get("cancel_question",None) == "Cancel"
+	if isCancel:
+		#Just go to the forum page
+		return HttpResponseRedirect('/preggo/forum/')
+
 	# Get the contest from the request.
 	context = RequestContext(request)
 
