@@ -52,5 +52,19 @@ $(document).ready(function () {
             });
                             
         });
-    });      
+    });    
+    
+    // Get search results
+    $("#search_form").submit(function(event) {
+        event.preventDefault();
+        var form = $(this);
+        var url = form.attr('action');
+        
+        $.get(url, {},
+            function(data) {
+                $("#search-results").html(data);
+            });
+    });
+    
+    
 });

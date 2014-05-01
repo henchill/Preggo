@@ -13,7 +13,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^preggo/', include('preggo.urls')), 
-    #url(r'^search/', include('haystack.urls')),
 )
 
 if settings.DEBUG:

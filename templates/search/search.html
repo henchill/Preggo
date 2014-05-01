@@ -1,39 +1,33 @@
-{% extends 'preggo/base.html' %}
 
-{% block content %}
-    <h2>Search</h2>
 
-    <form method="get" action=".">
-        <table>
-            {{ form.as_table }}
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <input type="submit" value="Search">
-                </td>
-            </tr>
-        </table>
+{% if results %}
+    <h3>Results</h3>
+    <div>
+    {% for result in results %}        
+    <div class="row">
+        <div class="col-md-10 ">
+            <h4 class="post-title">{{ result.object.title }}</h4>
+            <div class="post-content">{{ result.object.content }}</div>
+            <div class="post-footer">
+                <a href='{{result.object.get_absolute_url}}'>View Responses</a>
+                <a href='{{result.object.get_absolute_url}}/add_comment'>Comment</a>
+            </div>
+        </div>
+        
+        <div class="thumbs-container col-md-1">
+            <button class="vote-img post-upvotes" data-post-id="{{result.object.id}}"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+            <div class="votes" id="post-upvotes-count-{{result.object.id}}">{{result.object.upvotes}}</div>
+        </div>
+        
+        <div class="thumbs-container col-md-1">
+            <button class="vote-img post-downvotes" data-post-id="{{result.object.id}}"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+            <div class="votes" id="post-downvotes-count-{{result.object.id}}">{{result.object.downvotes}}</div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
 
-        {% if query %}
-            <h3>Results</h3>
-
-            {% for result in page.object_list %}
-                <p>
-                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
-                </p>
-            {% empty %}
-                <p>No results found.</p>
-            {% endfor %}
-
-            {% if page.has_previous or page.has_next %}
-                <div>
-                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-                    |
-                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-                </div>
-            {% endif %}
-        {% else %}
-            {# Show some example queries to run, maybe query syntax, something else? #}
-        {% endif %}
-    </form>
-{% endblock %}
+{% else %}
+    <p>No search entered</p>
+    {# Show some example queries to run, maybe query syntax, something else? #}
+{% endif %}

@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from preggo.models import * #Post, Comment, UserProfile, Question, Answer
+from haystack.forms import SearchForm
 
 class PostForm(forms.ModelForm):
 	title = forms.CharField(max_length=128, help_text="Please enter a title")
@@ -58,3 +59,20 @@ class AnswerForm(forms.ModelForm):
 	class Meta:
 		model = Answer
 		fields = ('content', 'upvotes', 'downvotes')
+		
+class PostSearchForm(SearchForm):
+    
+    def no_query_found(self):
+        return self.searchqueryset.all()
+
+    def search(self):        
+        # First, store the SearchQuerySet received from other processing. (the main work is run internally by Haystack here).
+        sqs = super(PostSearchForm, self).search()
+
+        # if something goes wrong
+        if not self.is_valid():
+            return self.no_query_found()
+
+        # you can then adjust the search results and ask for instance to order the results by title
+        #sqs = sqs.order_by(title)
+        return sqs

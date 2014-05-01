@@ -2,7 +2,7 @@
 
 {% load static %} <!-- Says we'll be using static data -->
 
-{% block title %}My Questions and Posts{% endblock %}
+{% block title %}Welcome to Preggo{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -12,10 +12,14 @@
     </div>
 
     <div id="tmp-content">
-        <div id="forumContent" class="section">
-        </div>
-        <div id="blogContent" class="section">
-        </div>
+        <form id="search_form" method="get" action="/preggo/search" role="form">
+            <div class="section">
+                <input id="id_q" class="form-control" type="text" name="q">
+                <input id="search-submit" class="btn btn-lg" type="submit" value="Finds Posts">
+            </div>
+            <div id="search-results" class="section">
+            </div>
+        </form>  
     </div>
 </div>
 {% endblock %}
