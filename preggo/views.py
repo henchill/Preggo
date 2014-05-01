@@ -133,6 +133,7 @@ def signup(request):
 
 		if user_form.is_valid() and profile_form.is_valid():
 			user = user_form.save()
+			password = user.password
 
 			# hash the password 
 			user.set_password(user.password)
@@ -147,6 +148,23 @@ def signup(request):
 			profile.save()
 
 			registered = True
+
+			user = authenticate(username=user.username, password=password)
+
+
+			if user is not None:
+				if user.is_active:
+					login(request, user)
+					return HttpResponseRedirect('/preggo/')
+				else:
+					return HttpResponse("Your account is disabled")
+			else:
+				print "Invalid login details: {0}, {1}".format(user.username, user.password)
+				return HttpResponse("Invalid login details supplied")
+
+			return render_to_response(
+			'preggo/index.html',
+			{}, context)
 
 		else:
 			print user_form.errors, profile_form.errors
