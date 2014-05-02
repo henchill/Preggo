@@ -26,4 +26,5 @@ urlpatterns = patterns('',
     url(r'^downvote_question/$', views.downvote_question, name="downvote_question"),
     url(r'^downvote_post/$', views.downvote_post, name="downvote_post"),   
     url(r'^search/$', views.search, name="search")
+
 )

@@ -127,6 +127,7 @@ def signup(request):
 
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
+            password = user.password
 
             # hash the password 
             user.set_password(user.password)
@@ -142,15 +143,25 @@ def signup(request):
 
             registered = True
 
+            user = authenticate(username=user.username, password=password)
+
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect('/preggo/')
+                else:
+                    return HttpResponse("Your account is disabled")
+            else:
+                print "Invalid login details: {0}, {1}".format(user.username, user.password)
+            
+                return HttpResponse("Invalid login details supplied")
         else:
             print user_form.errors, profile_form.errors
-
     else:
         user_form = UserForm()
         profile_form = UserProfileForm()
 
-    return render_to_response(
-            'preggo/signup.html',
+    return render_to_response('preggo/signup.html',
             {'user_form': user_form, 'profile_form': profile_form,
                 'registered': registered}, context)
         
@@ -182,56 +193,62 @@ def user_logout(request):
 
 @login_required
 def add_question(request):
-        # Get the contest from the request.
-        context = RequestContext(request)
+    #Is the user clicking Cancel?
+    isCancel = request.POST.get("cancel_question",None) == "Cancel"
+    if isCancel:
+        #Just go to the forum page
+        return HttpResponseRedirect('/preggo/forum/')
 
-        # A HTTP Post?
-        if request.method == 'POST':
-                form = QuestionForm(request.POST)
+    # Get the contest from the request.
+    context = RequestContext(request)
 
-                # Have we been provided with a valid form
-                if form.is_valid():
-                        # Save the new post to the database
-                        question = form.save(commit=False)
-                        question.user = request.user
-                        question.pub_date = datetime.now()
-                        question.save()
-                        # Send request to view the index view
-                        return HttpResponseRedirect('/preggo/forum/')
-                else:
-                        # The form contained an error. Print erros to terminal
-                        print form.errors
+    # A HTTP Post?
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+
+        # Have we been provided with a valid form
+        if form.is_valid():
+            # Save the new post to the database
+            question = form.save(commit=False)
+            question.user = request.user
+            question.pub_date = datetime.now()
+            question.save()
+            # Send request to view the index view
+            return HttpResponseRedirect('/preggo/forum/')
         else:
-                # If request wasn't post, show the form
-                form = QuestionForm()                   
+            # The form contained an error. Print erros to terminal
+            print form.errors
+    else:
+        # If request wasn't post, show the form
+        form = QuestionForm()                   
 
-        # request wasn't a post or form had errors.
-        return render_to_response('preggo/add_question.html', {'form': form}, context)
+    # request wasn't a post or form had errors.
+    return render_to_response('preggo/add_question.html', {'form': form}, context)
 
 @login_required
 def view_question(request, question_title_url):
-                        #request our context form the request passed to us
-        context = RequestContext(request)
+    #request our context form the request passed to us
+    context = RequestContext(request)
 
-        # convert url back to title
-        question_title = question_title_url.replace('_', ' ')
+    # convert url back to title
+    question_title = question_title_url.replace('_', ' ')
 
-        # create context dict to be used by template
-        context_dict = {'question_title': question_title}
+    # create context dict to be used by template
+    context_dict = {'question_title': question_title}
 
-        try:
-                question = Question.objects.get(title=question_title)
-                question.url = question_title_url
-                answers = Answer.objects.filter(question=question)
+    try:
+        question = Question.objects.get(title=question_title)
+        question.url = question_title_url
+        answers = Answer.objects.filter(question=question)
 
-                context_dict['answers'] = answers
+        context_dict['answers'] = answers
 
-                context_dict['question'] = question
+        context_dict['question'] = question
 
-        except Question.DoesNotExist:
-                pass
+    except Question.DoesNotExist:
+        pass
 
-        return render_to_response("preggo/view_question.html", context_dict, context)
+    return render_to_response("preggo/view_question.html", context_dict, context)
 
 @login_required 
 def upvote_question(request):
@@ -299,44 +316,44 @@ def downvote_post(request):
 
 @login_required
 def add_answer(request, question_title_url):
-        # Get the contest from the request.
-        context = RequestContext(request)
+    # Get the contest from the request.
+    context = RequestContext(request)
 
-        question_title = question_title_url.replace("_", " ")
-        # A HTTP Post?
-        if request.method == 'POST':
-                form = AnswerForm(request.POST)
+    question_title = question_title_url.replace("_", " ")
+    # A HTTP Post?
+    if request.method == 'POST':
+        form = AnswerForm(request.POST)
 
-                # Have we been provided with a valid form
-                if form.is_valid():
-                        # Not commiting because not all fields are populated
-                        answer = form.save(commit=False)
+        # Have we been provided with a valid form
+        if form.is_valid():
+            # Not commiting because not all fields are populated
+            answer = form.save(commit=False)
 
-                        try:
-                                questionObj = Question.objects.get(title=question_title)
-                                answer.question = questionObj
-                                answer.pub_date = datetime.now()
-                                answer.user = request.user
+            try:
+                questionObj = Question.objects.get(title=question_title)
+                answer.question = questionObj
+                answer.pub_date = datetime.now()
+                answer.user = request.user
 
-                        except Question.DoesNotExist:
-                                return_to_response("/preggo/add_question.html", {}, context)
+            except Question.DoesNotExist:
+                return_to_response("/preggo/add_question.html", {}, context)
 
-                        answer.save()
+            answer.save()
 
-                        # Send request to view the index view
-                        return redirect(questionObj)
-                else:
-                        # The form contained an error. Print erros to terminal
-                        print form.errors
+            # Send request to view the index view
+            return redirect(questionObj)
         else:
-                # If request wasn't post, show the form
-                form = AnswerForm()                     
+            # The form contained an error. Print erros to terminal
+            print form.errors
+    else:
+        # If request wasn't post, show the form
+        form = AnswerForm()                     
 
-        # request wasn't a post or form had errors.
-        return render_to_response('preggo/add_answer.html',
-                 {'form': form,
-                  'question_title_url': question_title_url,
-                  'question_title': question_title}, context)
+    # request wasn't a post or form had errors.
+    return render_to_response('preggo/add_answer.html',
+                {'form': form,
+                'question_title_url': question_title_url,
+                'question_title': question_title}, context)
 
 def medfacts(request):
         context = RequestContext(request)
