@@ -32,6 +32,7 @@ $(document).ready(function () {
     $('.post-upvotes').each(function () {
         $(this).click(function(){            
             var postid;
+            console.log("upvoted");
             postid = $(this).attr("data-post-id");  
             $.get('/preggo/upvote_post/', {post_id: postid},                                           function(data, status){
                 var selector = "#post-upvotes-count-" + postid;                                
@@ -66,5 +67,9 @@ $(document).ready(function () {
             });
     });
     
-    
+    $("#new-post").click(function(event) {       
+        event.preventDefault();
+        //$.get("/preggo/add_post/");
+        window.location.href="/preggo/add_post/";
+    });
 });

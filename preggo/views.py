@@ -15,7 +15,8 @@ from haystack.management.commands import update_index
 @login_required
 def index(request):
     context = RequestContext(request)
-    context_dict = {}
+    posts = Post.objects.all().order_by('-pub_date')
+    context_dict = {'posts': posts}
             
     return render_to_response('preggo/index.html', context_dict, context)
 
@@ -45,7 +46,7 @@ def post(request, post_title_url):
     return render_to_response("preggo/post.html", context_dict, context)
 
 @login_required
-def add_post(request):
+def add_post(request):    
     # Get the contest from the request.
     context = RequestContext(request)
 
