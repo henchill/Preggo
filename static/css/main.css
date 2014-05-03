@@ -125,7 +125,7 @@
 
 .pageTitle{
     font-size: 80px;
-    font-weight: bold;
+/*     font-weight: bold; */
     color: #0b95ec;
     font-family: 'Ruluko', 'sans-serif';
     position: relative;
@@ -151,6 +151,24 @@
   border: 1px solid #aaa;
   margin: 4px 0;
   padding: 5px;
+}
+
+.button-common {
+    background-color: #0b95ec;
+    color: #fff;
+    width: 200px;
+}
+
+#search-form {
+    text-align: center;
+}
+
+#list-body {
+    text-align: left;
+}
+
+.single-post {
+    width: 100%;
 }
 
 #container {

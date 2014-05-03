@@ -32,6 +32,7 @@ $(document).ready(function () {
     $('.post-upvotes').each(function () {
         $(this).click(function(){            
             var postid;
+            console.log("upvoted");
             postid = $(this).attr("data-post-id");  
             $.get('/preggo/upvote_post/', {post_id: postid},                                           function(data, status){
                 var selector = "#post-upvotes-count-" + postid;                                
@@ -52,5 +53,23 @@ $(document).ready(function () {
             });
                             
         });
-    });      
+    });    
+    
+    // Get search results
+    $("#search_form").submit(function(event) {
+        event.preventDefault();
+        var form = $(this);
+        var url = form.attr('action');
+        
+        $.get(url, {},
+            function(data) {
+                $("#search-results").html(data);
+            });
+    });
+    
+    $("#new-post").click(function(event) {       
+        event.preventDefault();
+        //$.get("/preggo/add_post/");
+        window.location.href="/preggo/add_post/";
+    });
 });

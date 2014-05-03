@@ -1,0 +1,5 @@
+{{ object.title }}
+{{ object.upvotes }}
+{{ object.downvotes }}
+{{ object.user.username }}
+{{ object.content }}

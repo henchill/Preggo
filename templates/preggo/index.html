@@ -2,7 +2,7 @@
 
 {% load static %} <!-- Says we'll be using static data -->
 
-{% block title %}My Questions and Posts{% endblock %}
+{% block title %}Welcome to Preggo{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -12,10 +12,41 @@
     </div>
 
     <div id="tmp-content">
-        <div id="forumContent" class="section">
-        </div>
-        <div id="blogContent" class="section">
-        </div>
+        <form id="search_form" method="get" action="/preggo/search" role="form">
+            <div class="section">
+                <input id="id_q" class="form-control" type="text" name="q">
+                <input id="search-submit" class="btn btn-lg button-common" type="submit" value="Find Posts">
+                <input id="new-post" class="btn btn-lg button-common" value="New Post">
+            </div>
+            <div id="search-results" class="section">
+                <h3>Most Recent Posts</h3>
+                <div class="quest-list">
+                {% for post in posts %}   
+                
+                <div class="row question-list">
+                    <div class="col-md-10" id="list-body">
+                    <h4 class="question-title">{{ post.title }}</h4>
+                    <div class="question-content">{{ post.content }}</div>
+                    <div class="question-footer">
+                        <a href='{{post.get_absolute_url}}'>View Responses</a>
+                        <a href='{{post.get_absolute_url}}/add_answer' >Reply</a>
+                    </div>
+                    </div>
+                    <div class="thumbs-container col-md-1">
+                    <button class="vote-img post-upvotes" data-post-id="{{post.id}}"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                    <div id="post-upvotes-count-{{post.id}}" class="votes">{{ post.upvotes }}</div>
+                    </div>
+                    <div class="thumbs-container col-md-1">
+                    <button class="vote-img post-downvotes" data-post-id="{{post.id}}"><span class="glyphicon
+                    glyphicon-thumbs-down"></span></button>
+                    <div class="votes" id="post-downvotes-count-{{post.id}}">{{ post.downvotes }}</div>
+                    </div>
+                </div>
+                
+                {% endfor %}
+                </div>
+            </div>
+        </form>  
     </div>
 </div>
 {% endblock %}
