@@ -72,4 +72,5 @@ $(document).ready(function () {
         //$.get("/preggo/add_post/");
         window.location.href="/preggo/add_post/";
     });
+
 });

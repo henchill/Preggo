@@ -24,7 +24,16 @@
                 <h2>Most Recent Posts</h2>
                 <div class="quest-list">
                 {% for post in posts %}   
-                
+<!--
+Modal Shit
+-->
+                <div id='modal'>
+                    <div id='modalContent'>No JavaScript Yet!</div>
+                    <a href='#' id='close'>close</a>
+                </div>
+<!--
+Modal Shit
+-->
                 <div class="row question-list">
                     <div class="col-md-10" id="list-body">
                     <h4 class="question-title">{{ post.title }}</h4>
