@@ -32,7 +32,8 @@ def post(request, post_title_url):
     context_dict = {'post_title': post_title}
 
     try:
-        post = Post.objects.get(title=post_title)
+        post = Post.objects.
+(title=post_title)
         post.url = post_title_url
         comments = Comment.objects.filter(post=post)
 
@@ -436,3 +437,20 @@ def search(request):
 
     response = render_to_response('search/search.html', context_dict, context)    
     return response
+
+@login_required
+def view_post(request):
+    context = RequestContext(request)
+    context_dict = {}
+    if request.method == 'GET':
+        post = Post.objects.get(id=request.post_id)
+        user = post.user
+        comments = post.comment_set.all()
+        context_dict["post"] = post
+        context_dict["user"] = user
+        context_dict["comments"] = comments
+        response = render_to_response('preggo/view_post.html', context_dict, context)
+        return response
+
+    return render_to_response("preggo/index.html", {}, context)
+

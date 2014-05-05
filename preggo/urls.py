@@ -6,7 +6,6 @@ from haystack.forms import ModelSearchForm
 from haystack.query import SearchQuerySet
 from haystack.views import SearchView
 
-sqs = SearchQuerySet()
 
 urlpatterns = patterns('', 
 	url(r'^$', views.index, name='index'),
@@ -27,4 +26,5 @@ urlpatterns = patterns('',
 	url(r'^downvote_question/$', views.downvote_question, name="downvote_question"),
     url(r'^downvote_post/$', views.downvote_post, name="downvote_post"),
     url(r'^search/$', views.search, name="search"),
+    url(r'^view_post/$', views.view_post, name="view_post"),
 )
