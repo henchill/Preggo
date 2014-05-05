@@ -2,16 +2,53 @@
 
 {% load static %} <!-- Says we'll be using static data -->
 
-{% block title %}My Questions and Posts{% endblock %}
+{% block title %}Welcome to Preggo{% endblock %}
 
 {% block content %}
+<div class="container">
     <h1 class="pageTitle">Welcome To Preggo</h1>
     <div class="section" id="preggo-info"> 
       <h4>Preggo is a social network for individuals trying to have a baby, pregnant women, and new moms. It provides a platform where people can ask questions and share their experiences</h4>
     </div>
-    <br>
-    <a href="/preggo/add_post/">Share an Experience</a><br>
-    <a href="/preggo/add_question/">Ask a Question</a><br>
-    <a href="/preggo/logout">Logout</a><br>
 
+    <div id="tmp-content">
+
+        <form id="search_form" method="get" action="/preggo/search" role="form">
+            <div class="section">
+                <h3>Search for a specific post or create a new post!</h3>
+                <input id="id_q" class="form-control" type="text" name="q">
+                <input id="search-submit" class="btn btn-lg button-common" type="submit" value="Find Posts">
+                <input id="new-post" class="btn btn-lg button-common" value="New Post">
+            </div>
+            <div id="search-results" class="section">
+                <h2>Most Recent Posts</h2>
+                <div class="quest-list">
+                {% for post in posts %}   
+                
+                <div class="row question-list">
+                    <div class="col-md-10" id="list-body">
+                    <h4 class="question-title">{{ post.title }}</h4>
+                    <div class="question-content">{{ post.content }}</div>
+                    <div class="question-footer">
+                        <a href='{{post.get_absolute_url}}'>View Responses</a>
+                        <a href='{{post.get_absolute_url}}/add_answer' >Reply</a>
+                    </div>
+                    </div>
+                    <div class="thumbs-container col-md-1">
+                    <button class="vote-img post-upvotes" data-post-id="{{post.id}}"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                    <div id="post-upvotes-count-{{post.id}}" class="votes">{{ post.upvotes }}</div>
+                    </div>
+                    <div class="thumbs-container col-md-1">
+                    <button class="vote-img post-downvotes" data-post-id="{{post.id}}"><span class="glyphicon
+                    glyphicon-thumbs-down"></span></button>
+                    <div class="votes" id="post-downvotes-count-{{post.id}}">{{ post.downvotes }}</div>
+                    </div>
+                </div>
+                
+                {% endfor %}
+                </div>
+            </div>
+        </form>  
+    </div>
+</div>
 {% endblock %}

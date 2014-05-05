@@ -6,39 +6,38 @@
 
 {% block content %}
 <div class="container">
-	<h1 class="pageTitle">Ask a Question</h1>
+    <h1 class="pageTitle">Ask a Question</h1>
 
-	<form id="question_form"  method="post" action="/preggo/add_question/" role="form">
-		{% csrf_token %}
-		{% for hidden in form.hidden_fields %}
-			{{ hidden }}
-		{% endfor %}
+    <form id="question_form"  method="post" action="/preggo/add_question/" role="form">
+        {% csrf_token %}
+        {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+        {% endfor %}
 
-                <div class="form-group">
+        <div class="form-group">
 
-                    Question Title: 
-					<input id="title" type="text" name="title" value="" placeholder="Give your question a title"><br><br>
+            Question Title: 
+            <input id="title" type="text" name="title" value="" placeholder="Give your question a title"><br><br>
 
-					Category:<br>
-					<select id="selectbasic" name="selectbasic" class="selectpicker">
-			          <option>Select Category</option>
-			          <option>Planning</option>
-			          <option>Preggo</option>
-			          <option>New Mom</option>
-			          <option>Experienced Mom</option>
-			        </select><br><br>
+            Category:<br>
+            <select id="selectbasic" name="selectbasic" class="selectpicker">
+                <option>Select Category</option>
+                <option>Planning</option>
+                <option>Preggo</option>
+                <option>New Mom</option>
+                <option>Experienced Mom</option>
+            </select><br><br>
 
-					<a href="">Attach Image</a> - 
-					<a href="">Attach Video</a>
-					<br>
-					<textarea name="content" value="" rows="6" cols="80" placeholder="Enter your question here">
-					</textarea><br>
+            <a href="">Attach Image</a> - 
+            <a href="">Attach Video</a>
+            <br>
+            <textarea name="content" value="" rows="6" cols="80" placeholder="Enter your question here">
+            </textarea><br>
 
-                </div>
+        </div>
 
-		<input type="submit" class="btn btn-med" name="submit" value="Create Question" />
-		<input type="button" class="btn btn-med" value="Cancel"/>
-	</form>
-	
+        <input type="submit" class="btn btn-med" name="create_question" value="Create Question" />
+        <input type="submit" name="cancel_question" class="btn btn-med" value="Cancel"/>
+    </form>
 </div>      
 {% endblock %}

@@ -1,5 +1,12 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 from preggo import views
+
+#from django.conf.urls.defaults import *
+from haystack.forms import ModelSearchForm
+from haystack.query import SearchQuerySet
+from haystack.views import SearchView
+
+sqs = SearchQuerySet()
 
 urlpatterns = patterns('', 
 	url(r'^$', views.index, name='index'),
@@ -11,12 +18,13 @@ urlpatterns = patterns('',
 	url(r'^question/(?P<question_title_url>\w+)/add_answer/$', views.add_answer, name='add_answer'),
 	url(r'^signup/$', views.signup, name='signup'),
 	url(r'^login/$', views.user_login, name="login"),
+	url(r'^change_password/$', views.change_password, name="change_password"),
 	url(r'^logout/$', views.user_logout, name="logout"),
 	url(r'^medfacts/$', views.medfacts, name="medfacts"),
 	url(r'^forum/$', views.forum, name="forum"),
 	url(r'^user/(?P<user_url>\w+)/$', views.user_page, name="user_page"),
 	url(r'^upvote_question/$', views.upvote_question, name="upvote_question"),
 	url(r'^downvote_question/$', views.downvote_question, name="downvote_question"),
-	url(r'^upvote_post/$', views.upvote_post, name="upvote_post"),
-    url(r'^downvote_post/$', views.downvote_post, name="downvote_post"),	
+    url(r'^downvote_post/$', views.downvote_post, name="downvote_post"),
+    url(r'^search/$', views.search, name="search"),
 )
