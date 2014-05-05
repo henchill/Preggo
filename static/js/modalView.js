@@ -11,12 +11,12 @@ $(document).ready(function () {
         // Append the HTML
         $overlay = $('<div id="overlay"></div>');
         $modal = $('<div id="modal"></div>');
-        $content = $('<div id="content"></div>');
+        $modalContent = $('<div id="content"></div>');
         $close = $('<a id="close" href="#">close</a>');
 
         $modal.hide();
         $overlay.hide();
-        $modal.append($content, $close);
+        $modal.append($modalContent, $close);
 
         $(document).ready(function(){
             $('body').append($overlay, $modal);
@@ -37,7 +37,7 @@ $(document).ready(function () {
 
         // Open the modal
         method.open = function (settings) {
-            $content.empty().append(settings.content);
+            $modalContent.empty().append(settings.modalContent);
 
             $modal.css({
                 width: settings.width || 'auto', 
@@ -56,7 +56,7 @@ $(document).ready(function () {
         method.close = function () {
             $modal.hide();
             $overlay.hide();
-            $content.empty();
+            $modalContent.empty();
             $(window).unbind('resize.modal');
         };
 
@@ -68,4 +68,8 @@ $(document).ready(function () {
         return method;
     }());
 
+	$(".clickable").click(function(evt) {        
+        modal.open({modalContent: "<p>Howdy my name is sim sima</p><br>"});
+        console.log("clicked");
+    });
 });

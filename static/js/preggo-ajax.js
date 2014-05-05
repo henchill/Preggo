@@ -72,5 +72,31 @@ $(document).ready(function () {
         //$.get("/preggo/add_post/");
         window.location.href="/preggo/add_post/";
     });
-
+    
+    $(".comment-box").hide();
+    
+    $(".comment-link").click(function(event) {
+        event.preventDefault();
+        var id = $(this).attr("data-textarea-id");        
+        if (!$("#"+id).is(":visible")) {
+            $("#"+id).show();
+        }
+    });
+    
+    $(".comment-box").keypress(function(evt) {
+        evt.preventDefault();
+        if (evt.which == 13) {
+            console.log("submit the comment");
+        }
+    });
+    
+//     $(".clickable").click(function(evt) {        
+//         var obj_id = $(this).attr("data-post-id");
+//         console.log("clicked");
+//     });
+    
+    var showCommentBox = function () {
+//         $("#comment-box").show();
+    }
 });
+
