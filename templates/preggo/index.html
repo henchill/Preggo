@@ -12,14 +12,16 @@
     </div>
 
     <div id="tmp-content">
+
         <form id="search_form" method="get" action="/preggo/search" role="form">
             <div class="section">
+                <h3>Search for a specific post or create a new post!</h3>
                 <input id="id_q" class="form-control" type="text" name="q">
                 <input id="search-submit" class="btn btn-lg button-common" type="submit" value="Find Posts">
                 <input id="new-post" class="btn btn-lg button-common" value="New Post">
             </div>
             <div id="search-results" class="section">
-                <h3>Most Recent Posts</h3>
+                <h2>Most Recent Posts</h2>
                 <div class="quest-list">
                 {% for post in posts %}   
                 

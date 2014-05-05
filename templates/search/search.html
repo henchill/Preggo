@@ -1,7 +1,7 @@
 
 
 {% if results %}
-    <h3>Results</h3>
+    <h2>Results</h2>
     <div class="quest-list">
     {% for result in results %}   
     
@@ -19,9 +19,9 @@
         <div id="post-upvotes-count-{{result.object.id}}" class="votes">{{ result.object.upvotes }}</div>
         </div>
         <div class="thumbs-container col-md-1">
-        <button class="vote-img post-downvotes" data-post-id="{{result.object.id}}"><span class="glyphicon
-        glyphicon-thumbs-down"></span></button>
-        <div class="votes" id="post-downvotes-count-{{result.object.id}}">{{ result.object.downvotes }}</div>
+            <button class="vote-img post-downvotes" data-post-id="{{result.object.id}}"><span class="glyphicon
+            glyphicon-thumbs-down"></span></button>
+            <div class="votes" id="post-downvotes-count-{{result.object.id}}">{{ result.object.downvotes }}</div>
         </div>
       </div>
     

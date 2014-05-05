@@ -74,5 +74,5 @@ class PostSearchForm(SearchForm):
             return self.no_query_found()
 
         # you can then adjust the search results and ask for instance to order the results by title
-        #sqs = sqs.order_by(title)
+        #sqs = sqs.order_by("-upvotes")
         return sqs
