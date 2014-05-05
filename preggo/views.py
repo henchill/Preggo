@@ -193,6 +193,41 @@ def user_logout(request):
     return HttpResponseRedirect('/preggo/')
 
 @login_required
+def change_password(request):
+	# #Is the user clicking Cancel?
+	# isCancel = request.POST.get("cancel_question",None) == "Cancel"
+	# if isCancel:
+	# 	#Just go to the forum page
+	# 	return HttpResponseRedirect('/preggo/forum/')
+
+	# # Get the contest from the request.
+	context = RequestContext(request)
+
+	# # A HTTP Post?
+	# if request.method == 'POST':
+	# 	form = QuestionForm(request.POST)
+
+	# 	# Have we been provided with a valid form
+	# 	if form.is_valid():
+	# 		# Save the new post to the database
+	# 		question = form.save(commit=False)
+	# 		question.user = request.user
+	# 		question.pub_date = datetime.now()
+	# 		question.save()
+	# 		# Send request to view the index view
+	# 		return HttpResponseRedirect('/preggo/forum/')
+	# 	else:
+	# 		# The form contained an error. Print erros to terminal
+	# 		print form.errors
+	# else:
+	# 	# If request wasn't post, show the form
+	# 	form = QuestionForm()			
+
+	# # request wasn't a post or form had errors.
+	return render_to_response('preggo/change_password.html', {}, context)
+
+
+@login_required
 def add_question(request):
     #Is the user clicking Cancel?
     isCancel = request.POST.get("cancel_question",None) == "Cancel"
