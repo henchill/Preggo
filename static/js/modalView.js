@@ -68,8 +68,33 @@ $(document).ready(function () {
         return method;
     }());
 
-	$(".clickable").click(function(evt) {        
-        modal.open({modalContent: "<p>Howdy my name is sim sima</p><br>"});
-        console.log("clicked");
+    $(".clickable").click(function(evt) {   
+        var postid = $(this).attr("data-post-id");
+        $.get("/preggo/view_post/", {post_id: postid}, 
+            function(data) {
+                modal.open({modalContent: data});
+            }
+        );
     });
+
+        
+    $("#new-post").click(function(event) {
+        $.get("/preggo/add_post/", {}, 
+            function(data) {
+                modal.open({modalContent: data});
+            }
+        );
+    });
+    
+//     $("#post_form").submit(function(event) {
+//         event.preventDefault();
+//         var form = $(this);
+//         var url = form.attr('action');
+//         $.post(url, {}, function(data) {
+//             modal.close();
+//         });
+//     });
+        
+        
+        
 });

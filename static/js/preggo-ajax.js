@@ -67,11 +67,7 @@ $(document).ready(function () {
             });
     });
     
-    $("#new-post").click(function(event) {       
-        event.preventDefault();
-        //$.get("/preggo/add_post/");
-        window.location.href="/preggo/add_post/";
-    });
+    
     
     $(".comment-box").hide();
     
