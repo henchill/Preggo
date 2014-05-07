@@ -112,8 +112,6 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
-USE_TZ = True
-
 if not DEVELOPMENT:
     DATABASES['default'] = dj_database_url.config()
     DEBUG = False
