@@ -72,3 +72,10 @@
   border: none;
   background-color: #fff;
 }
+.signUpTable{
+  margin-left: auto;
+  margin-right: auto;
+}
+.signUpTable input{
+  width:200px;
+}

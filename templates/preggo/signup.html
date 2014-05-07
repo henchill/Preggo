@@ -14,8 +14,55 @@
     <form id='user_form' method='post' action='/preggo/signup/' enctype='multipart/form-data'>
         {% csrf_token %}
 
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
+        <!-- {{ user_form.as_p }} -->
+        <!-- {{ profile_form.as_p }} -->
+
+        <table class="signUpTable" style="margin-left: auto; margin-right: auto;">
+            <tr>
+                <td> Username:
+                </td>
+                <td> <input type="text" name="username" value="" placeholder="username">
+                </td>
+            </tr>
+            <tr>
+                <td> Email:
+                </td>
+                <td> <input type="text" name="email" value="" placeholder="email">
+                </td>
+            </tr>
+            <tr>
+                <td> Password:
+                </td>
+                <td> <input type="password" name="password" value="" placeholder="password">
+                </td>
+            </tr>
+            <tr>
+                <td> Picture:
+                </td>
+                <td>
+                    <input id="id_picture" name="picture" type="file">
+                </td>
+            </tr>
+            <tr>
+                <td> Pregnancy Stage:
+                </td>
+                <td> 
+                    <select id="selectbasic" name="selectbasic" class="selectpicker">
+                        <option>Select Category</option>
+                        <option>Planning</option>
+                        <option>Preggo</option>
+                        <option>New Mom</option>
+                        <option>Experienced Mom</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> Baby's Name:
+                </td>
+                <td> <input type="text" name="babyName" value="" placeholder="your baby's name">
+                </td>
+            </tr>
+        </table>
 
         <input type="submit" name="submit" value="Sign Up" />
     </form>
