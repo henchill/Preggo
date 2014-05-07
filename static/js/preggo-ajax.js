@@ -86,6 +86,14 @@ $(document).ready(function () {
         }
     });
     
+    $(".clickable-hover").hover(function(){
+        $(this).css("background-color", "#eee");        
+        $(this).children(".thumbs-container").children(".vote-img").css("background-color", "#eee");
+    }, function () {
+        $(this).css("background-color", "#fff");
+        $(this).children(".thumbs-container").children(".vote-img").css("background-color", "#fff");
+    });
+    
 //     $(".clickable").click(function(evt) {        
 //         var obj_id = $(this).attr("data-post-id");
 //         console.log("clicked");

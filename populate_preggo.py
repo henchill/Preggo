@@ -19,6 +19,10 @@ def add_comment(post, content):
 	p = Post.objects.get_or_create(title=post)[0]
 	c = Comment.objects.get_or_create(post=p, content=content)
 	return c
+    
+def add_user(username, email, password):
+    u = User.objects.get_or_create(username=username, email=email, password=password)
+    return u
 
 if __name__ == '__main__':
 	print "Starting preggo pupulation script"

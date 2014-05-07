@@ -6,11 +6,11 @@
 
 {% block content %}
 <div class="container">
-<div id='overlay'> </div>
-<div id='modal'>
+<!-- <div id='overlay'> </div> -->
+<!--<div id='modal'>
     <div id='modalContent'></div>
     <a href='#' id='close'>close</a>
-</div>
+</div>-->
     <h1 class="pageTitle">Welcome To Preggo</h1>
     <div class="section" id="preggo-info"> 
       <h4>Preggo is a social network for individuals trying to have a baby, pregnant women, and new moms. It provides a platform where people can ask questions and share their experiences</h4>
@@ -31,8 +31,8 @@
                 {% for post in posts %}   
 
 
-                <div class="row question-list clickable" data-post-id="{{post.id}}">
-                    <div class="col-md-10" id="list-body">
+                <div class="row question-list clickable-hover ">
+                    <div class="col-md-10 clickable" id="list-body" data-post-id="{{post.id}}">
                     <h4 class="question-title">{{ post.title }}</h4>
                     <div class="question-content">{{ post.content }}</div>
 <!--                    <div class="question-footer">

@@ -63,6 +63,7 @@ class AnswerForm(forms.ModelForm):
 class PostSearchForm(SearchForm):
     
     def no_query_found(self):
+        print "no query found"
         return self.searchqueryset.all()
 
     def search(self):        

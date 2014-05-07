@@ -103,9 +103,17 @@
     width:300px;
 }
 
-.clickable:hover {
+/*.clickable:hover {
     background-color: #ccc;
 }
+
+.thumbs-container {
+     background-color: #ccc; 
+}
+
+.clickable:hover > button {
+    background-color: #ccc;
+}*/
 
 
 .glyphicon {
@@ -286,13 +294,13 @@ input {
   color: #0b95ec;
 }
 
-.nav-links {
+/*.nav-links {
   color: #0b95ec;
   &:hover, &:focus {
     color: #fff;
   }
 
-}
+}*/
 
 body {
   font-family: 'Ruluko', 'sans-serif';
@@ -308,7 +316,7 @@ body {
 }
 
 .section {
-  border: 1px solid #fcc;
+  border: 1px solid #ddd;
   background-color: #fff;
   border-radius: 25px;
   padding: 20px;

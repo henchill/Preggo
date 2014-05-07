@@ -9,6 +9,7 @@ from preggo.models import Post, Comment, Question, Answer
 
 from preggo.forms import * #PostForm, CommentForm, QuestionForm, AnswerForm
 from datetime import datetime
+from django.utils.timezone import utc
 
 from haystack.management.commands import update_index
 
@@ -59,7 +60,7 @@ def add_post(request):
             # Save the new post to the database
             post = form.save(commit=False)                  
             post.user = request.user
-            post.pub_date = datetime.now()
+            post.pub_date = datetime.utcnow().replace(tzinfo=utc)
             post.save()
             
             # add post to query set        
