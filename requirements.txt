@@ -13,7 +13,6 @@ oauthlib==0.6.1
 pyOpenSSL==0.13
 pycrypto==2.6.1
 pycurl==7.19.3
-pysmbc==1.0.14.1
 pytz==2014.2
 urllib3==1.7.1
 virtualenv==1.11.4
