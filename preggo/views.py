@@ -33,7 +33,7 @@ def post(request, post_title_url):
     context_dict = {'post_title': post_title}
 
     try:
-        post = Post.objects.get(title=post_title)
+        post = Post.objects.filter(title=post_title)
         post.url = post_title_url
         comments = Comment.objects.filter(post=post)
 
