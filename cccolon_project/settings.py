@@ -10,15 +10,15 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import dj_database_url #TODO uncomment for production
+#import dj_database_url #TODO uncomment for production
 
 
-DEVELOPMENT = False #TODO uncomment for production
-#DEVELOPMENT = True
+#DEVELOPMENT = False #TODO uncomment for production
+DEVELOPMENT = True
 ALLOWED_HOSTS = ['*']
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-#DEBUG = True
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
