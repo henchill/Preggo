@@ -39,10 +39,10 @@ $(document).ready(function () {
         method.open = function (settings) {
             $modalContent.empty().append(settings.modalContent);
 
-            $modal.css({
-                width: settings.width || 'auto', 
-                height: settings.height || 'auto'
-            })
+            // $modal.css({
+            //     width: settings.width || 'auto', 
+            //     height: settings.height || 'auto'
+            // })
 
             method.center();
 
@@ -64,7 +64,7 @@ $(document).ready(function () {
             e.preventDefault();
             method.close();
         });
-
+        
         return method;
     }());
 
