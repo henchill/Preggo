@@ -7,10 +7,6 @@
 {% block content %}
 <div class="container">
 <div id='overlay'> </div>
-<div id='modal'>
-    <div id='modalContent'></div>
-    <a href='#' id='close'>close</a>
-</div>
     <h1 class="pageTitle">Welcome To Preggo</h1>
     <div class="section" id="preggo-info"> 
       <h4>Preggo is a social network for individuals trying to have a baby, pregnant women, and new moms. It provides a platform where people can ask questions and share their experiences</h4>
@@ -35,10 +31,6 @@
                     <div class="col-md-10" id="list-body">
                     <h4 class="question-title">{{ post.title }}</h4>
                     <div class="question-content">{{ post.content }}</div>
-<!--                    <div class="question-footer">
-                        <a href='{{post.get_absolute_url}}'>View Responses</a>
-                        <a href="#" data-textarea-id="txt-{{post.id}}" class="comment-link">Comment</a>
-                    </div>-->
                     <textarea id="txt-{{post.id}}" class="form-control comment-box" rows="2" placeholder="Enter comment below then press enter to post"></textarea>
                     </div>
                     <div class="thumbs-container col-md-1">
