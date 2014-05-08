@@ -9,10 +9,10 @@ $(document).ready(function () {
         $close;
 
         // Append the HTML
-        $overlay = $('<div id="overlay"></div>');
-        $modal = $('<div id="modal"></div>');
-        $modalContent = $('<div id="content"></div>');
-        $close = $('<a id="close" href="#">close</a>');
+        $overlay = $("#overlay");//$('<div id="overlay"></div>');
+        $modal = $("#modal"); //$('<div id="modal"></div>');
+        $modalContent = $("#content"); //$('<div id="content"></div>');
+        $close = $("#close"); //$('<a id="close" href="#"><img src="static/media/Images/close.png></a>');
 
         $modal.hide();
         $overlay.hide();

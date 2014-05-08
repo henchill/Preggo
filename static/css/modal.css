@@ -15,7 +15,6 @@
     border-radius:14px;
     padding:8px;
     width: 60%;
-    height: 20%;
 }
 
 #modalContent {
@@ -26,7 +25,8 @@
 
 #close {
     position:absolute;
-    background-image:url('../media/Images/close.jpg');
+    background-image:url("../media/Images/close.png");
+    background-size: contain;
     background-repeat:no-repeat;
     width:24px;
     height:27px;
@@ -34,4 +34,5 @@
     text-indent:-9999px;
     top:-7px;
     right:-7px;
+    z-index: 9999;
 }
