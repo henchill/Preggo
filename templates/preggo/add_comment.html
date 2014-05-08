@@ -5,12 +5,11 @@
 {% block title %}Add Comment{% endblock %}
 
 {% block content %}
-	<link rel="stylesheet" type="text/css" href="add_comment.css" />
 	<h1 align="center">Add Comment</h1>
 		
 
 	<form id="comment_form" method="post" action="/preggo/post/{{ post_title_url }}/add_comment/">
-
+        {% csrf_token %}
 	<textarea id="textarea" align="center" class="span11" name="textarea" rows="10" cols="50">Enter Comment Here</textarea>
 	<br>
 
@@ -21,3 +20,4 @@
 </html>
 {% endblock %}
 
+ 

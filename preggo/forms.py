@@ -67,6 +67,7 @@ class PostSearchForm(SearchForm):
         return self.searchqueryset.all()
 
     def search(self):        
+        print self
         # First, store the SearchQuerySet received from other processing. (the main work is run internally by Haystack here).
         sqs = super(PostSearchForm, self).search()
 

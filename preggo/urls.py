@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^upvote_question/$', views.upvote_question, name="upvote_question"),
     url(r'^downvote_question/$', views.downvote_question, name="downvote_question"),
     url(r'^downvote_post/$', views.downvote_post, name="downvote_post"),
+    url(r'^upvote_post/$', views.upvote_post, name="upvote_post"),
     url(r'^search/$', views.search, name="search"),
     url(r'^view_post/$', views.view_post, name="view_post"),
 )

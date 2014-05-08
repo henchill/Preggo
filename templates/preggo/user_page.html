@@ -7,55 +7,21 @@
 {% block content %}
 
 <div class="container">
-  <h1 class="pageTitle">My Blog</h1>
+  <h1 class="pageTitle">My Posts</h1>
   <div class="section" id="user-info">
-    <img id="profile-image" src="{{ picture }}">
+    <img id="profile-image" src="{{MEDIA_URL}}/{{ picture }}">
     <p>user information section</p>
   </div>
-  <div class="section pull-right" id="user-posts">
-    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-      <li class="active"><a href="#all_posts" data-toggle="tab">All Posts</a></li>
-      <li><a href="#my_posts" data-toggle="tab">My Posts</a></li>
-    </ul>
-    
-    <div id="my-tab-content" class="tab-content">
-      <div class="tab-pane active " id="all_posts">
-      {% if all_posts %}
-<!--         <div class="post-list"> -->
-        {% for post in all_posts %}
-        <div class="row single-post">
-          <div class="col-lg-10 ">
-            <h4 class="post-title">{{ post.title }}</h4>
-            <div class="post-content">{{ post.content }}</div>
-            <div class="post-footer">
-              <a href='/preggo/post/{{post.url}}'>View Responses</a>
-              <a href='/preggo/post/{{post.url}}/add_comment'>Comment</a>
-            </div>
-          </div>
-          <div class="thumbs-container col-lg-1">
-            <button class="vote-img post-upvotes" data-post-id="{{post.id}}"><span class="glyphicon glyphicon-thumbs-up"></span></button>
-            <div class="votes" id="post-upvotes-count-{{post.id}}">{{post.upvotes}}</div>
-          </div>
-          <div class="thumbs-container col-lg-1">
-            <button class="vote-img post-downvotes" data-post-id="{{post.id}}"><span class="glyphicon glyphicon-thumbs-down"></span></button>
-            <div class="votes" id="post-downvotes-count-{{post.id}}">{{post.downvotes}}</div>
-          </div>
-        </div>          
-        {% endfor %}
-<!--         </div> -->
-      {% endif %}
-      </div>
-      <div class="tab-pane" id="my_posts">
+  <div class="section pull-right" id="user-posts"> 
+    <div id="new-post-user-page">
+        <input id="new-post" class="btn btn-lg button-common" value="Create a New Post">
+    </div>
       {% if user_posts %}
         {% for post in user_posts %}
-        <div class="row post-list">
-          <div class="col-lg-10">
+        <div class="row single-post clickable-hover pull-left">
+          <div class="col-lg-10 clickable" data-post-id="{{post.id}}">
             <h4 class="post-title">{{ post.title }}</h4>
             <div class="post-content">{{ post.content }}</div>
-            <div class="post-footer">
-              <a href='/preggo/post/{{post.url}}'>View Responses</a>
-              <a href='/preggo/post/{{post.url}}/add_comment'>Comment</a>
-            </div>
           </div>
           <div class="thumbs-container col-lg-1">
             <button class="vote-img post-upvotes" data-post-id="{{post.id}}"><span class="glyphicon glyphicon-thumbs-up"></span></button>
@@ -68,8 +34,6 @@
         </div>          
         {% endfor %}
       {% endif %}
-      </div>
-    </div>
   </div>  
 </div>
 {% endblock %}

@@ -59,17 +59,16 @@ $(document).ready(function () {
     $("#search_form").submit(function(event) {
         event.preventDefault();
         var form = $(this);
-        var url = form.attr('action');
-        
-        $.get(url, {},
-            function(data) {
-                $("#search-results").html(data);
-            });
+        var text = $("#id_q").val();
+        if (text.trim() != "") {
+            var url = form.attr('action');
+            
+            $.get(url + "?" + form.serialize(), {},
+                function(data) {
+                    $("#search-results").html(data);
+                });
+        }
     });
-    
-    
-    
-    $(".comment-box").hide();
     
     $(".comment-link").click(function(event) {
         event.preventDefault();
@@ -80,9 +79,11 @@ $(document).ready(function () {
     });
     
     $(".comment-box").keypress(function(evt) {
-        evt.preventDefault();
+        
         if (evt.which == 13) {
-            console.log("submit the comment");
+            evt.preventDefault();
+//             var postid = $(this).attr("data-post-id");
+            var form = $("#post-add-comment").submit();
         }
     });
     

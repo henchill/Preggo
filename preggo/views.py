@@ -85,7 +85,7 @@ def add_comment(request, post_title_url):
 
     post_title = post_title_url.replace("_", " ")
     # A HTTP Post?
-    if request.method == 'POST':
+    if request.method == 'POST':        
         form = CommentForm(request.POST)
 
         # Have we been provided with a valid form
@@ -424,6 +424,7 @@ def user_page(request, user_url):
     context_dict = {"all_posts": all_posts,
                     "user_posts": user_posts,
                     "picture": picture}
+    print picture
     return render_to_response('preggo/user_page.html', context_dict, context)
     
 @login_required
@@ -431,6 +432,7 @@ def search(request):
     context = RequestContext(request)
     # we retrieve the query to display it in the template
     form = PostSearchForm(request.GET)
+    print "form: ", form
     # we call the search method from the NotesSearchForm. Haystack do the work!
     results = form.search()
     context_dict = {'results' : results}
@@ -439,10 +441,10 @@ def search(request):
     return response
 
 @login_required
-def view_post(request):
-    print "post view executed"
+def view_post(request):    
     context = RequestContext(request)
     post_id = None
+    
     
     if request.method == 'GET':
         post_id = request.GET['post_id']
@@ -455,6 +457,8 @@ def view_post(request):
         context_dict["post"] = post
         context_dict["user"] = user
         context_dict["comments"] = comments
+        context_dict["post_title_url"] = post.title.replace(" ", "_")
+        context_dict["comment_form"] = CommentForm()
         
     response = render_to_response('preggo/view_post.html', context_dict, context)
     return response

@@ -1,3 +1,5 @@
+<script type="text/javascript" src="{{ STATIC_URL }}js/preggo-ajax.js"></script>
+
 <div class="post-view">
     <div class="post-details">
         <div>{{post.title}}</div>
@@ -8,7 +10,11 @@
             <div>{{comment.content}}</div>
         {% endfor %}
     </div>
-    <div id="post-add-comment">
-        <textarea id="txt-{{post.id}}" class="form-control comment-box" rows="2" placeholder="Enter comment below then press enter to post"></textarea>
-    </div>
+    <form id="post-add-comment" method="post" action="/preggo/post/{{post_title_url}}/add_comment/">
+        {% csrf_token %}
+        {% for hidden in comment_form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        <textarea id="txt-{{post.id}}" class="form-control comment-box" rows="2" data-post-id="{{post.id}}" name="content" placeholder="Enter comment below then press enter to post"></textarea>
+    </form>
 </div>
