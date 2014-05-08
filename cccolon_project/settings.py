@@ -18,7 +18,7 @@ DEVELOPMENT = False #TODO uncomment for production
 ALLOWED_HOSTS = ['*']
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-DEBUG = True
+#DEBUG = True
 
 TEMPLATE_DEBUG = True
 
